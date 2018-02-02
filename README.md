@@ -1,6 +1,6 @@
 # coffee-app-vuejs
 
-> A Vue.js project
+> Code challenge of Flybits
 
 ## Build Setup
 
@@ -16,3 +16,20 @@ npm run build
 ```
 
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Diretory Structure
+coffee-app-vuejs
+|---src
+    |---assets
+    |---App.vue
+    |---main.js
+    |---components
+        |---ui
+            |---Checkout
+        |---views
+            |---Home
+            |---Cart
+            |---CoffeeDetails
+    |---styles
+|---pacage.json
+|---index.html
