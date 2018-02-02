@@ -1,6 +1,7 @@
 @import "~styles/base";
 
-.back {
-    width: 800px;
-    height: 600px;
+.home-view {
+    header {
+        background-color: $color-theme;
+    }
 }
