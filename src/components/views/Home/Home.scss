@@ -2,6 +2,25 @@
 
 .home-view {
     header {
+        display: flex;
+        height: 50px;
+        padding: 15px;
+        align-items: center;
+        align-content: space-between;
         background-color: $color-theme;
+
+        .flex-1 {
+            flex: 1;
+        }
+
+        .cart-wrapper {
+            text-align: right;
+            color: $color-text; 
+        }
+    }
+
+    p {
+        padding: 15px;
+        text-align: center;
     }
 }
