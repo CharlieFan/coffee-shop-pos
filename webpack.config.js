@@ -1,5 +1,8 @@
+/* eslint-disable */
 var path = require('path')
 var webpack = require('webpack')
+
+console.log(path.resolve(__dirname, './src'))
 
 module.exports = {
   entry: './src/main.js',
@@ -7,6 +10,17 @@ module.exports = {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',
     filename: 'build.js'
+  },
+  resolve: {
+    extensions: ['*', '.js', '.vue', '.json'],
+    modules: [
+      path.resolve(__dirname, './src'), // module use src as a url base
+      'node_modules'
+    ],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      'assets': path.resolve(__dirname, './src/assets'),  // use assets/** as images base
+    }
   },
   module: {
     rules: [
@@ -22,7 +36,16 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
-          'sass-loader'
+          'resolve-url-loader',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+              includePaths: [
+                path.resolve(__dirname, './src/styles')
+              ]
+            }
+          }
         ],
       },
       {
@@ -30,6 +53,7 @@ module.exports = {
         use: [
           'vue-style-loader',
           'css-loader',
+          'resolve-url-loader',
           'sass-loader?indentedSyntax'
         ],
       },
@@ -44,11 +68,19 @@ module.exports = {
             'scss': [
               'vue-style-loader',
               'css-loader',
-              'sass-loader'
+              'resolve-url-loader',
+              {
+                loader: 'sass-loader',
+                sourceMap: true,
+                includePaths: [
+                  path.resolve(__dirname, './src/styles')
+                ]
+              }
             ],
             'sass': [
               'vue-style-loader',
               'css-loader',
+              'resolve-url-loader',
               'sass-loader?indentedSyntax'
             ]
           }
@@ -68,12 +100,6 @@ module.exports = {
         }
       }
     ]
-  },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    },
-    extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
     historyApiFallback: true,
