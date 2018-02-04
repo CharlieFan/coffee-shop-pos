@@ -1,26 +1,70 @@
 @import "~styles/base";
 
 .home-view {
-    header {
-        display: flex;
-        height: 50px;
-        padding: 15px;
-        align-items: center;
-        align-content: space-between;
-        background-color: $color-theme;
+    padding-top: 50px;
 
-        .flex-1 {
-            flex: 1;
-        }
+    h3 {
+        margin-top: 15px;
+        text-align: center;
+    }
+}
 
-        .cart-wrapper {
-            text-align: right;
-            color: $color-text; 
-        }
+.topbar {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 15px;
+    align-items: center;
+    align-content: space-between;
+    background-color: $color-theme;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.cart-wrapper {
+    text-align: right;
+    color: $color-text;
+
+    &:hover {
+        color: $color-primary;
+    }
+}
+
+.list-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    margin: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid $color-border;
+
+    h4 {
+        padding: 0 15px;
     }
 
-    p {
-        padding: 15px;
-        text-align: center;
+    ul {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        li {
+            width: 250px;
+            height: 250px;
+            margin: 15px;
+            background: $color-border;
+
+            p {
+                margin: 100px auto 0;
+                text-align: center;
+            }
+
+            &:hover {
+                box-shadow: 2px 2px 16px 5px rgba(0, 0, 0, 0.52);
+            }
+        }
     }
 }

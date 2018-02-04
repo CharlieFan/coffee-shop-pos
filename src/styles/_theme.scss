@@ -1,0 +1,37 @@
+@import "base";
+
+// buttons:
+.btn {
+    padding: 10px;
+    font-size: 1rem;
+    color: $color-white;
+    border: none;
+    line-height: 16px;
+    border-radius: 4px;
+    background-color: $color-theme;
+    outline: none;
+
+    &:hover {
+        background-color: tint($color-theme, 20%)
+    }
+
+    &:active {
+        background-color: shade($color-theme, 20%)
+    }
+}
+
+@each $type, $bg-color in
+    (primary, $color-primary),
+    (success, $color-success) {
+    .btn-#{$type} {
+        background-color: $bg-color;
+
+        &:hover {
+            background-color: tint($bg-color, 20%)
+        }
+
+        &:active {
+            background-color: shade($bg-color, 20%)
+        }
+    }
+}

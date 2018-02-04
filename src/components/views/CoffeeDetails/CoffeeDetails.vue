@@ -1,6 +1,11 @@
 <template>
-    <div>
-        <h1>{{ msg }}</h1>
+    <div class="detail-view">
+        <h1>Vanilla Latte</h1>
+
+        <div class="footer">
+            <button class="btn btn-primary fl">Back to Menu</button>
+            <button class="btn btn-success fr">Add to Order</button>
+        </div>
     </div>
 </template>
 
@@ -15,4 +20,4 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" src="./CoffeeDetails.scss"></style>

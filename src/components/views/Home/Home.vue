@@ -1,39 +1,82 @@
 <template>
     <div class="home-view">
-        <header>
+        <div class="topbar">
             <h1 class="flex-1">Coffee Menu</h1>
             <a class="cart-wrapper flex-1"
                 href="javascript:void(0)">
                 <i class="fas fa-shopping-cart"></i>
-                <span>My orders ({{0}})</span>
+                <span>orders ({{0}})</span>
             </a>
-        </header>
-        <p>Welcome what would you like to drink?</p>
+        </div>
+        <h3>Select Drink</h3>
 
-        <div class="list-wrapper">
-            <h3>Espresso Drink</h3>
+        <!-- <div class="list-wrapper">
+            <h4>Espresso Drink</h4>
             <ul>
-                <li>
+                <li v-for="v in 3" :key="v">
 
+                </li>
+            </ul>
+        </div> -->
+        <div class="list-wrapper" v-for="v in products" :key="v.category">
+            <h4>{{v.category}}</h4>
+            <ul>
+                <li v-for="i in v.list" :key="i.product_id">
+                    <p>{{i.product_name}}</p>
                 </li>
             </ul>
         </div>
 
 
-
-        
     </div>
 </template>
+
+<style lang="scss" src="./Home.scss"></style>
 
 <script>
 export default {
     name: 'home',
     data () {
         return {
-            msg: 'home view'
+            products: [
+                {
+                    category: 'Espresso',
+                    list: [
+                        {
+                            product_id: 11,
+                            product_name: 'Latte',
+                            img_path: 'fjkdslfsd'
+                        }
+                    ]
+                },
+                {
+                    category: 'Brewed Coffee',
+                    list: [
+                        {
+                            product_id: 21,
+                            product_name: 'Premium Roasted blend'
+                        },
+                        {
+                            product_id: 22,
+                            product_name: 'Dark Roasted blend'
+                        }
+                    ]
+                },
+                {
+                    category: 'Iced Coffee',
+                    list: [
+                        {
+                            product_id: 31,
+                            product_name: 'Cold Brewed'
+                        },
+                        {
+                            product_id: 32,
+                            product_name: 'Iced Latte'
+                        }
+                    ]
+                }
+            ]
         }
     }
 }
 </script>
-
-<style lang="scss" src="./Home.scss"></style>

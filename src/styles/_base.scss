@@ -78,4 +78,21 @@ a {
     }
 }
 
+// utils styles:
+.fl {
+    float: left;
+}
 
+.fr {
+    float: right;
+}
+
+// functions:
+
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
