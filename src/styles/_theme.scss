@@ -36,11 +36,35 @@
     }
 }
 
+// inputs:
+.input-box {
+    height: 36px;
+    padding: 0.25rem 0.5rem;
+    font-size: 1rem;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+
+}
+
 // select
 .menu-select {
     min-width: 80px;
+    height: 36px;
     padding: 0.25rem 0.5rem;
+    font-size: 1rem;
     border: 1px solid $color-primary;
+    border-radius: 4px;
     background: $color-white;
     outline: none;
+}
+
+// form item:
+.form-item {
+    margin: 0 auto 15px;
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: $font-bold;
+    }
 }
