@@ -22,7 +22,7 @@
             <div class="form-item">
                 <label>Espresso:</label>
                 <input class="input-box" type="number" min="1">
-                <i class="fas fa-times"></i>
+                <icon name="cross" width="16" height="16"></icon>
                 <span>shot(s)</span>
             </div>
 
@@ -33,7 +33,7 @@
                     <option value="m">Splanda</option>
                     <option value="l">Honey</option>
                 </select>
-                <i class="fas fa-times"></i>
+                <icon name="cross" width="16" height="16"></icon>
                 <input class="input-box" type="number" min="0"><span>shot(s)</span>
             </div>
 
@@ -44,7 +44,7 @@
                     <option value="s">2% Milk</option>
                     <option value="l">Skimmed Milk</option>
                 </select>
-                <i class="fas fa-times"></i>
+                <icon name="cross" width="16" height="16"></icon>
                 <input class="input-box" type="number" min="0"><span>shot(s)</span>
             </div>
 
@@ -55,12 +55,13 @@
                     <option value="s">Hazelnut</option>
                     <option value="l">Caramel</option>
                 </select>
-                <i class="fas fa-times"></i>
+                <icon name="cross" width="16" height="16"></icon>
                 <input class="input-box" type="number" min="0"><span>shot(s)</span>
             </div>
         </form>
 
-        <number-input></number-input>
+        <number-input :max="10" :min="0"
+            v-model="espNum"></number-input>
     </div>
 </template>
 
@@ -74,7 +75,7 @@ export default {
     },
     data () {
         return {
-            msg: 'coffee details view'
+            espNum: 0
         }
     }
 }

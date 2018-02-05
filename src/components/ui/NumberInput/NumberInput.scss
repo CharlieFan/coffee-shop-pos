@@ -1,5 +1,41 @@
 @import "~styles/base";
 
 .number-input {
+    position: relative;
+    height: 36px;
+    border: 1px solid $color-primary;
+    border-radius: 4px;
+    padding: 2px 50px 2px 10px; 
+    overflow: hidden;
 
+    input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+    }
+}
+
+.actionbox {
+    position: absolute;
+    display: flex;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 100%;
+    background-color: $color-primary;
+    
+    span {
+        display: inline-block;
+        flex: 1;
+        height: 100%;
+        line-height: 2;
+        cursor: pointer;
+        color: $color-white;
+        text-align: center;
+
+        &:last-child {
+            border-left: 1px solid $color-white;
+        }
+    }
 }

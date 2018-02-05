@@ -1,17 +1,67 @@
 <template>
     <div class="number-input">
-        <input type="number">
-
-        <svg class="icon">
-            <use xlink:href="svg-symbols.svg#plus"></use>
-        </svg>
+        <input type="text"
+            :value="value"
+            @input="updateValue"
+            @focus="$event.target.select()">
+        <div class="actionbox">
+            <span @click="add">
+                <Icon name="plus" width="16" height="16"></Icon>
+            </span>
+            <span @click="minus"> 
+                <Icon name="minus" width="16" height="16"></Icon>
+            </span>
+        </div>
     </div>
 </template>
 
 <script>
-
+import Icon from 'components/ui/Icon/Icon'
 export default {
-    name: 'numberInput'
+    name: 'numberInput',
+    components: {
+        Icon
+    },
+    props: {
+        min: {
+            type: Number
+        },
+        max: {
+            types: Number
+        },
+        value: {
+            types: Number,
+            default: 0
+        }
+    },
+    watch: {
+        value() {
+             if (this.max !== undefined && this.max <= this.value) {
+                this.$emit('input', this.max)
+                return false
+            }
+
+            if (this.min !== undefined && this.min >= this.value) {
+                this.$emit('input', this.min)
+                return false
+            }
+        }
+    },
+    methods: {
+        add() {
+            let payload = this.value + 1
+            this.$emit('input', payload)
+        },
+        minus() {
+            let payload = this.value - 1
+            this.$emit('input', payload)
+        },
+        updateValue(e) {
+            let {value} = e.target
+            console.log(value)
+            this.$emit('input', value)
+        }
+    }
 }
 </script>
 
