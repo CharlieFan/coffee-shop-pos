@@ -21,9 +21,14 @@
 
             <div class="form-item">
                 <label>Espresso:</label>
-                <input class="input-box" type="number" min="1">
-                <icon name="cross" width="16" height="16"></icon>
-                <span>shot(s)</span>
+                <input type="checkbox">
+                <p>No Espresso</p>
+                <div>
+                    <number-input class="max-160"
+                        v-model="espNum"></number-input>
+                    <icon name="cross" width="16" height="16"></icon>
+                    <span>shot(s)</span>
+                </div>
             </div>
 
             <div class="form-item">
@@ -60,8 +65,7 @@
             </div>
         </form>
 
-        <number-input :max="10" :min="0"
-            v-model="espNum"></number-input>
+        <!-- <number-input></number-input> -->
     </div>
 </template>
 
@@ -75,10 +79,11 @@ export default {
     },
     data () {
         return {
+            size: 's',
             espNum: 0
         }
     }
 }
 </script>
 
-<style lang="scss" src="./CoffeeDetails.scss"></style>
+<style lang="scss" scoped src="./CoffeeDetails.scss"></style>

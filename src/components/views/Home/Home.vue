@@ -24,7 +24,7 @@
     </div>
 </template>
 
-<style lang="scss" src="./Home.scss"></style>
+<style lang="scss" scoped src="./Home.scss"></style>
 
 <script>
 export default {

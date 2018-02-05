@@ -1,12 +1,14 @@
 @import "~styles/base";
 
 .number-input {
+    display: inline-block;
     position: relative;
     height: 36px;
     border: 1px solid $color-primary;
     border-radius: 4px;
     padding: 2px 50px 2px 10px; 
     overflow: hidden;
+    vertical-align: middle;
 
     input {
         width: 100%;

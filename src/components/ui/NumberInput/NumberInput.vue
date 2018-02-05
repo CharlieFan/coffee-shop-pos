@@ -32,7 +32,8 @@ export default {
         },
         value: {
             types: Number,
-            default: 0
+            default: 0,
+            required: true
         }
     },
     watch: {
@@ -69,4 +70,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./NumberInput.scss"></style>
+<style lang="scss" scoped src="./NumberInput.scss"></style>
