@@ -3,7 +3,8 @@
         <input type="text"
             :value="value"
             @input="updateValue"
-            @focus="$event.target.select()">
+            @focus="$event.target.select()"
+            @keyup.delete="checkDelete">
         <div class="actionbox">
             <span @click="add">
                 <Icon name="plus" width="16" height="16"></Icon>
@@ -57,9 +58,12 @@ export default {
             this.$emit('input', payload)
         },
         updateValue(e) {
-            let {value} = e.target
-            console.log(value)
-            this.$emit('input', value)
+            this.$emit('input', e.targe.value)
+        },
+        checkDelete(e) {
+            if (Number(e.target.value) === Number(this.min)) {
+                e.target.select()
+            }
         }
     }
 }
