@@ -1,14 +1,14 @@
 /* eslint-disable */
 var path = require('path')
 var webpack = require('webpack')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
 
-console.log(path.resolve(__dirname, './src'))
 
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
+    publicPath: '/',
     filename: 'build.js'
   },
   resolve: {
@@ -71,7 +71,6 @@ module.exports = {
               'resolve-url-loader',
               {
                 loader: 'sass-loader',
-                sourceMap: true,
                 includePaths: [
                   path.resolve(__dirname, './src/styles')
                 ]
@@ -101,6 +100,13 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'coffee-app-vue',
+      template: path.resolve(__dirname, './index.html'),
+      filename: path.resolve(__dirname, './dist/index.html')
+    })
+  ],
   devServer: {
     historyApiFallback: true,
     noInfo: true,

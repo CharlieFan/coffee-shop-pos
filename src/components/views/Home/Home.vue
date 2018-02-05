@@ -1,14 +1,16 @@
 <template>
     <div class="home-view">
         <div class="topbar">
-            <h1 class="flex-1">Coffee Menu</h1>
-            <a class="cart-wrapper flex-1"
-                href="javascript:void(0)">
-                <i class="fas fa-shopping-cart"></i>
-                <span>orders ({{0}})</span>
-            </a>
+            <div class="inner-wrapper">
+                <h1 class="flex-1">Coffee Menu</h1>
+                <a class="cart-wrapper flex-1"
+                    href="javascript:void(0)">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>orders ({{0}})</span>
+                </a>
+            </div>
         </div>
-        <h3>Select Drink</h3>
+        <!-- <h3>Select Drink</h3> -->
         <div class="list-wrapper" v-for="v in products" :key="v.category">
             <h4>{{v.category}}</h4>
             <ul>
