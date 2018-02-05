@@ -87,6 +87,12 @@ a {
     float: right;
 }
 
+@each $flex in 1, 2, 3, 4, 5, 6, 7, 8 {
+    .flex-#{$flex} {
+        flex: $flex;
+    }
+}
+
 // functions:
 
 @function tint($color, $percentage) {

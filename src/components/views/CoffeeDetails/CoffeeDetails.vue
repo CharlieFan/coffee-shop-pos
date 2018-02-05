@@ -1,6 +1,13 @@
 <template>
     <div class="detail-view">
+        <div class="topbar">
+            <button class="btn btn-primary fl">Back to Menu</button>
+            <button class="btn btn-success fr">Add to Order</button>
+        </div>
+
         <h1>Vanilla Latte</h1>
+
+        <img src="" alt="">
 
         <form>
             <div class="form-item">
@@ -51,20 +58,20 @@
                 <i class="fas fa-times"></i>
                 <input class="input-box" type="number" min="0"><span>shot(s)</span>
             </div>
-
         </form>
 
-
-        <div class="footer">
-            <button class="btn btn-primary fl">Back to Menu</button>
-            <button class="btn btn-success fr">Add to Order</button>
-        </div>
+        <number-input></number-input>
     </div>
 </template>
 
 <script>
+import NumberInput from 'components/ui/NumberInput/NumberInput'
+
 export default {
     name: 'coffeeDetails',
+    components: {
+        NumberInput
+    },
     data () {
         return {
             msg: 'coffee details view'

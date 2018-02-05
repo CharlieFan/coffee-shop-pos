@@ -2,7 +2,7 @@
     <div class="home-view">
         <div class="topbar">
             <div class="inner-wrapper">
-                <h1 class="flex-1">Coffee Menu</h1>
+                <h1 class="flex-3">Coffee Menu</h1>
                 <a class="cart-wrapper flex-1"
                     href="javascript:void(0)">
                     <i class="fas fa-shopping-cart"></i>
@@ -52,6 +52,10 @@ export default {
                         {
                             product_id: 22,
                             product_name: 'Dark Roasted blend'
+                        },
+                        {
+                            product_id: 23,
+                            product_name: 'Decaf blend'
                         }
                     ]
                 },
