@@ -62,7 +62,7 @@
                 <td  class="col-summary text-right">
                     Subtotal:
                 </td>
-                <td class="col-summary text-center">
+                <td class="col-summary text-right">
                     $575
                 </td>
             </tr>
@@ -75,8 +75,8 @@
                 <td  class="col-summary text-right">
                     Tax:
                 </td>
-                <td class="col-summary text-center">
-                    $575
+                <td class="col-summary text-right">
+                    $74.75
                 </td>
             </tr>
 
@@ -88,8 +88,8 @@
                 <td  class="col-summary text-right">
                     Total:
                 </td>
-                <td class="col-summary text-center">
-                    $575
+                <td class="col-summary text-right">
+                    $649.75
                 </td>
             </tr>
         </table>
