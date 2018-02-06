@@ -58,19 +58,6 @@ export default {
                             product_name: 'Decaf blend'
                         }
                     ]
-                },
-                {
-                    category: 'Iced Coffee',
-                    list: [
-                        {
-                            product_id: 31,
-                            product_name: 'Cold Brewed'
-                        },
-                        {
-                            product_id: 32,
-                            product_name: 'Iced Latte'
-                        }
-                    ]
                 }
             ]
         }

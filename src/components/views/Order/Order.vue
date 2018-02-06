@@ -108,7 +108,7 @@
                 Checkout
             </button>
         </div>
-        <payment-win></payment-win>
+        <payment-win :is-show.sync="isShowPayment"></payment-win>
     </div>
 </template>
 
@@ -122,14 +122,15 @@ export default {
     },
     data() {
         return {
-
+            isShowPayment: false
         }
     },
     methods: {
         checkout() {
-            this.$router.push({
-                name: 'checkout'
-            })
+            this.isShowPayment = true
+            // this.$router.push({
+            //     name: 'checkout'
+            // })
         }
     }
 }

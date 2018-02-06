@@ -1,9 +1,9 @@
 <template>
-    <div class="payment-win">
+    <div class="payment-win" v-if="isShow">
         <div class="window">
             <div class="topbar text-right clear">
                 <p class="fl">Payment</p>
-                <button class="fr">
+                <button class="fr" @click="close">
                     <icon name="cross"></icon>
                 </button>
             </div>
@@ -66,6 +66,12 @@
 <script>
 export default {
     name: 'payment-win',
+    props: {
+        isShow: {
+            type: Boolean,
+            default: false
+        }
+    },
     data() {
         return {
             isCash: true // cash: true; card: false
@@ -77,6 +83,9 @@ export default {
         },
         chooseCard() {
             this.isCash = false
+        },
+        close() {
+            this.$emit('update:isShow', false)
         }
     }
 }
