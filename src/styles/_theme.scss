@@ -22,7 +22,8 @@
 
 @each $type, $bg-color in
     (primary, $color-primary),
-    (success, $color-success) {
+    (success, $color-success),
+    (danger, $color-danger) {
     .btn-#{$type} {
         background-color: $bg-color;
 

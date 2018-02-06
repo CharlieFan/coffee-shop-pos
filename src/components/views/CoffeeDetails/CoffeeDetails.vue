@@ -1,12 +1,9 @@
 <template>
     <div class="detail-view">
         <div class="topbar">
-            <button class="btn btn-primary fl"
-                @click="backMenu">Back to Menu</button>
-            <button class="btn btn-success fr">Add to Order</button>
+            <h1>Vanilla Latte</h1>
         </div>
 
-        <h1>Vanilla Latte</h1>
 
         <img src="" alt="">
 
@@ -90,6 +87,11 @@
                 </div>
             </div>
         </form>
+        <div class="footer">
+            <button class="btn btn-primary fl"
+                @click="backMenu">Back to Menu</button>
+            <button class="btn btn-success fr">Add to Order</button>
+        </div>
     </div>
 </template>
 

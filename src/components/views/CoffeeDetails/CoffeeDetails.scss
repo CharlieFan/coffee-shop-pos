@@ -4,23 +4,37 @@
     width: 100%;
     max-width: $max-width;
     padding: 50px 15px 0;
-    margin: 0 auto;
+    margin: 0 auto 50px;
 
-    h1 {
-        margin: 15px auto;
-        text-align: center;
-    }
+    // h1 {
+    //     margin: 15px auto;
+    //     text-align: center;
+    // }
 }
 
-.topbar {
+
+.topbar,
+.footer {
     position: fixed;
-    top: 0;
     left: 0;
     width: 100%;
     height: 50px;
-    padding: 7px 15px 0;
     box-shadow: 0px -1px 10px -1px rgba(0, 0, 0, 0.5);
     background-color: $color-theme;
+}
+
+.topbar {
+    top: 0;
+
+    h1 {
+        text-align: center;
+        line-height: 50px;
+    }
+}
+
+.footer {
+    padding: 7px 15px 0;
+    bottom: 0;
 }
 
 form {
