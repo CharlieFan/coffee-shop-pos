@@ -1,6 +1,6 @@
 <template>
     <div class="checkout-view">
-       <div class="topbar">
+       <div class="topbar unpritable">
             <h1 class="text-center">
                 <span class="check-icon">
                     <icon name="checkmark"></icon>
@@ -11,7 +11,6 @@
 
         <div class="payment-wrapper">
             <div class="item date">
-                <span>Date</span>
                 <span>YYYY-MM-DD 05:42:05 PM</span>
             </div>
 
@@ -58,9 +57,9 @@
             </div>
         </div>
 
-        <div class="footer">
-            <button class="btn btn-primary fl">Back To menu</button>
-            <button class="btn btn-success fr">
+        <div class="footer unpritable">
+            <button class="btn btn-primary fl" @click="toMenu">Back To menu</button>
+            <button class="btn btn-success fr" @click="print">
                 Print Receipt
             </button>
         </div>
@@ -70,6 +69,17 @@
 <script>
 export default {
     name: 'checkout',
+    methods: {
+        print() {
+            window.print()
+            return false
+        },
+        toMenu() {
+            this.$router.push({
+                name: 'home'
+            })
+        }
+    }
 }
 </script>
 

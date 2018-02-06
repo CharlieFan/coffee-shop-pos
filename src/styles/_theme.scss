@@ -10,6 +10,7 @@
     border-radius: 4px;
     background-color: $color-theme;
     outline: none;
+    cursor: pointer;
 
     &:hover {
         background-color: tint($color-theme, 20%)

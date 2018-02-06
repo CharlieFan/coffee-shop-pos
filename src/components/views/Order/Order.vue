@@ -92,6 +92,12 @@
                     $649.75
                 </td>
             </tr>
+
+            <tr>
+                <td colspan="5" class="text-right">
+                    <button class="btn btn-primary">Add More Order</button>
+                </td>
+            </tr>
         </table>
 
         <div class="footer">
@@ -102,12 +108,18 @@
                 Checkout
             </button>
         </div>
+        <payment-win></payment-win>
     </div>
 </template>
 
 <script>
+import PaymentWin from './PaymentWin/PaymentWin'
+
 export default {
     name: 'order',
+    components: {
+        PaymentWin
+    },
     data() {
         return {
 

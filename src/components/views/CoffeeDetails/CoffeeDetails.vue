@@ -87,6 +87,24 @@
                     <span class="tail">shot(s)</span>
                 </div>
             </div>
+
+            <div class="form-item">
+                <label>
+                    Topping
+                    <input type="checkbox">
+                </label>
+                <div>
+                    <select class="menu-select max-130">
+                        <option value="m">Whipped Cream</option>
+                        <option value="s">Drizzle</option>
+                    </select>
+                    <icon name="cross" width="16" height="16"></icon>
+                    <number-input class="max-160"
+                        :min="0"
+                        v-model="flavor.shot"></number-input>
+                    <span class="tail">shot(s)</span>
+                </div>
+            </div>
         </form>
         <div class="footer">
             <button class="btn btn-primary fl"

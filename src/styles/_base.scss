@@ -11,6 +11,14 @@
     float: right;
 }
 
+.clear {
+    &:after {
+        display: block;
+        content: "";
+        clear: both;
+    }
+}
+
 // text align:
 @each $type in center, left, right {
     .text-#{$type} {
