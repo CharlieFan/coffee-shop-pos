@@ -4,7 +4,8 @@
             <div class="inner-wrapper">
                 <h1 class="flex-3">Coffee Menu</h1>
                 <a class="cart-wrapper flex-1"
-                    href="javascript:void(0)">
+                    href="javascript:void(0)"
+                    @click="toOrder">
                     <icon name="cart"></icon>
                     <span>orders ({{0}})</span>
                 </a>
@@ -72,6 +73,13 @@ export default {
                     ]
                 }
             ]
+        }
+    },
+    methods: {
+        toOrder() {
+            this.$router.push({
+                name: 'order'
+            })
         }
     }
 }

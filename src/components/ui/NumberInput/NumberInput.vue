@@ -25,10 +25,12 @@ export default {
     },
     props: {
         min: {
-            type: Number
+            type: Number,
+            default: null
         },
         max: {
-            types: Number
+            types: Number,
+            default: null
         },
         value: {
             types: Number,
@@ -38,12 +40,12 @@ export default {
     },
     watch: {
         value() {
-             if (this.max !== undefined && this.max <= this.value) {
+             if (this.max !== null && this.max <= this.value) {
                 this.$emit('input', this.max)
                 return false
             }
 
-            if (this.min !== undefined && this.min >= this.value) {
+            if (this.min !== null && this.min >= this.value) {
                 this.$emit('input', this.min)
                 return false
             }
@@ -59,12 +61,23 @@ export default {
             this.$emit('input', payload)
         },
         updateValue(e) {
-            this.$emit('input', e.targe.value)
+            this.$emit('input', e.target.value)
         },
         checkDelete(e) {
             if (Number(e.target.value) === Number(this.min)) {
                 e.target.select()
             }
+        }
+    },
+    created() {
+        if (this.max !== null && this.max <= this.value) {
+            this.$emit('input', this.max)
+            return false
+        }
+
+        if (this.min !== null && this.min >= this.value) {
+            this.$emit('input', this.min)
+            return false
         }
     }
 }

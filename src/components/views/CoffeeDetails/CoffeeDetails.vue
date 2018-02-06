@@ -82,7 +82,8 @@
                     </select>
                     <icon name="cross" width="16" height="16"></icon>
                     <number-input class="max-160"
-                            v-model="espNum"></number-input>
+                        :min="0"
+                        v-model="flavor.shot"></number-input>
                     <span class="tail">shot(s)</span>
                 </div>
             </div>
@@ -106,7 +107,11 @@ export default {
     data () {
         return {
             size: 's',
-            espNum: 0
+            espNum: 2,
+            flavor: {
+                type: 'vanilla',
+                shot: 2
+            }
         }
     },
     methods: {
