@@ -41,7 +41,7 @@
     height: 36px;
     padding: 0.25rem 0.5rem;
     font-size: 1rem;
-    border: 1px solid $color-primary;
+    border: 1px solid $color-theme;
     border-radius: 4px;
 
 }
@@ -52,7 +52,7 @@
     height: 36px;
     padding: 0.25rem 0.5rem;
     font-size: 1rem;
-    border: 1px solid $color-primary;
+    border: 1px solid $color-theme;
     border-radius: 4px;
     background: $color-white;
     outline: none;
@@ -63,8 +63,9 @@
     margin: 0 auto 15px;
 
     label {
-        display: inline-block;
+        display: block;
         margin-bottom: 5px;
+        font-size: 1.2rem;
         font-weight: $font-bold;
     }
 }

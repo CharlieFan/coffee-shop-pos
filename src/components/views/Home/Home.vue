@@ -10,7 +10,6 @@
                 </a>
             </div>
         </div>
-        <!-- <h3>Select Drink</h3> -->
         <div class="list-wrapper" v-for="v in products" :key="v.category">
             <h4>{{v.category}}</h4>
             <ul>

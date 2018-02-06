@@ -1,7 +1,8 @@
 <template>
     <div class="detail-view">
         <div class="topbar">
-            <button class="btn btn-primary fl">Back to Menu</button>
+            <button class="btn btn-primary fl"
+                @click="backMenu">Back to Menu</button>
             <button class="btn btn-success fr">Add to Order</button>
         </div>
 
@@ -9,63 +10,86 @@
 
         <img src="" alt="">
 
-        <form>
+        <form @submit.prevent>
             <div class="form-item">
-                <label>Size:</label>
-                <select class="menu-select">
-                    <option value="s">S</option>
-                    <option value="m">M</option>
-                    <option value="l">L</option>
-                </select>
-            </div>
-
-            <div class="form-item">
-                <label>Espresso:</label>
-                <input type="checkbox">
-                <p>No Espresso</p>
+                <label>Size</label>
                 <div>
-                    <number-input class="max-160"
-                        v-model="espNum"></number-input>
-                    <icon name="cross" width="16" height="16"></icon>
-                    <span>shot(s)</span>
+                    <select class="menu-select max-160">
+                        <option value="s">S</option>
+                        <option value="m">M</option>
+                        <option value="l">L</option>
+                    </select>
                 </div>
             </div>
 
             <div class="form-item">
-                <label>Sweetener:</label>
-                <select class="menu-select">
-                    <option value="s">Sugar</option>
-                    <option value="m">Splanda</option>
-                    <option value="l">Honey</option>
-                </select>
-                <icon name="cross" width="16" height="16"></icon>
-                <input class="input-box" type="number" min="0"><span>shot(s)</span>
+                <label>
+                    Espresso
+                    <input type="checkbox">
+                </label>
+                <!-- <p>No Espresso</p> -->
+                <div>
+                    <number-input class="max-160"
+                        v-model="espNum">
+                    </number-input>
+                    <span class="tail">shot(s)</span>
+                </div>
             </div>
 
             <div class="form-item">
-                <label>Milk:</label>
-                <select class="menu-select">
-                    <option value="m">18% Cream</option>
-                    <option value="s">2% Milk</option>
-                    <option value="l">Skimmed Milk</option>
-                </select>
-                <icon name="cross" width="16" height="16"></icon>
-                <input class="input-box" type="number" min="0"><span>shot(s)</span>
+                <label>
+                    Sweetener
+                    <input type="checkbox">
+                </label>
+                <div>
+                    <select class="menu-select max-130">
+                        <option value="s">Sugar</option>
+                        <option value="m">Splanda</option>
+                        <option value="l">Honey</option>
+                    </select>
+                    <icon name="cross" width="16" height="16"></icon>
+                    <number-input class="max-160"
+                            v-model="espNum"></number-input>
+                    <span class="tail">shot(s)</span>
+                </div>
             </div>
 
             <div class="form-item">
-                <label>Flavor:</label>
-                <select class="menu-select">
-                    <option value="m">Vanilla</option>
-                    <option value="s">Hazelnut</option>
-                    <option value="l">Caramel</option>
-                </select>
-                <icon name="cross" width="16" height="16"></icon>
-                <input class="input-box" type="number" min="0"><span>shot(s)</span>
+                <label>
+                    Milk
+                    <input type="checkbox">
+                </label>
+                <div>
+                    <select class="menu-select max-130">
+                        <option value="m">18% Cream</option>
+                        <option value="s">2% Milk</option>
+                        <option value="l">Skimmed Milk</option>
+                    </select>
+                    <icon name="cross" width="16" height="16"></icon>
+                    <number-input class="max-160"
+                            v-model="espNum"></number-input>
+                    <span class="tail">shot(s)</span>
+                </div>
+            </div>
+
+            <div class="form-item">
+                <label>
+                    Flavor
+                    <input type="checkbox">
+                </label>
+                <div>
+                    <select class="menu-select max-130">
+                        <option value="m">Vanilla</option>
+                        <option value="s">Hazelnut</option>
+                        <option value="l">Caramel</option>
+                    </select>
+                    <icon name="cross" width="16" height="16"></icon>
+                    <number-input class="max-160"
+                            v-model="espNum"></number-input>
+                    <span class="tail">shot(s)</span>
+                </div>
             </div>
         </form>
-
-        <!-- <number-input></number-input> -->
     </div>
 </template>
 
@@ -82,6 +106,16 @@ export default {
             size: 's',
             espNum: 0
         }
+    },
+    methods: {
+        backMenu() {
+            this.$router.push({
+                name: 'home'
+            })
+        }
+    },
+    created() {
+        // console.log(this)
     }
 }
 </script>

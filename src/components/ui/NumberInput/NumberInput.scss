@@ -4,9 +4,9 @@
     display: inline-block;
     position: relative;
     height: 36px;
-    border: 1px solid $color-primary;
+    border: 1px solid $color-theme;
     border-radius: 4px;
-    padding: 2px 50px 2px 10px; 
+    padding: 2px 50px 2px 5px;
     overflow: hidden;
     vertical-align: middle;
 
@@ -25,15 +25,17 @@
     right: 0;
     width: 50px;
     height: 100%;
-    background-color: $color-primary;
-    
-    span {
+
+    button {
         flex: 1;
         height: 100%;
         line-height: 34px;
         cursor: pointer;
+        background-color: $color-theme;
         color: $color-white;
         text-align: center;
+        outline: none;
+        border: none;
 
         &:last-child {
             border-left: 1px solid $color-white;

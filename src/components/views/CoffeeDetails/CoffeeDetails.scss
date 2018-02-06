@@ -3,7 +3,7 @@
 .detail-view {
     width: 100%;
     max-width: $max-width;
-    padding-top: 50px;
+    padding: 50px 15px 0;
     margin: 0 auto;
 
     h1 {
@@ -25,11 +25,35 @@
 
 form {
     width: 100%;
+    max-width: 350px;
     margin: 0 auto;
     box-sizing: border-box;
-    padding: 0 15px;
 }
 
-.max-160 {
-    max-width: 160px;
+.form-item {
+    label {
+        margin-right: 15px;
+    }
+
+    .svg-icon {
+        margin: 0 5px;
+        color: $color-theme;
+    }
+
+    .tail {
+        margin-left: 5px;
+        font-size: 1.2rem;
+        color: $color-theme;
+    }
+
+
+    .max-160 {
+        width: 100%;
+        max-width: 80px;
+    }
+
+    .max-130 {
+        width: 100%;
+        max-width: 130px;
+    }
 }

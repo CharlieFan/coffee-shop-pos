@@ -6,12 +6,12 @@
             @focus="$event.target.select()"
             @keyup.delete="checkDelete">
         <div class="actionbox">
-            <span @click="add">
+            <button @click="add">
                 <Icon name="plus" width="16" height="16"></Icon>
-            </span>
-            <span @click="minus"> 
+            </button>
+            <button @click="minus">
                 <Icon name="minus" width="16" height="16"></Icon>
-            </span>
+            </button>
         </div>
     </div>
 </template>
