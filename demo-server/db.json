@@ -1,0 +1,89 @@
+{
+    "coffee": [
+        {
+            "id": 1,
+            "category_name": "Espresso",
+            "product_name": "Single Espresso",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "base_price": 0
+        },
+        {
+            "id": 2,
+            "category_name": "Espresso",
+            "product_name": "Latte",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "base_price": 1
+        },
+        {
+            "id": 3,
+            "category_name": "Espresso",
+            "product_name": "Cappuccino",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "base_price": 1
+        },
+        {
+            "id": 4,
+            "category_name": "Brewed",
+            "product_name": "Original Blend",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "base_price": 1.75
+        },
+        {
+            "id": 5,
+            "category_name": "Brewed",
+            "product_name": "Dark Roast",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "base_price": 1.75
+        },
+        {
+            "id": 6,
+            "category_name": "Brewed",
+            "product_name": "Decaf",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "base_price": 1.75
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "category_name": "espresso",
+            "product_name": "espresso shot",
+            "price": 1
+        },
+        {
+            "id": 2,
+            "category_name": "flavor",
+            "product_name": "vanilla",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "price": 0.5
+        },
+        {
+            "id": 3,
+            "category_name": "flavor",
+            "product_name": "hazelnut",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "price": 0.5
+        },
+        {
+            "id": 4,
+            "category_name": "flavor",
+            "product_name": "caramel",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "price": 0.5
+        },
+        {
+            "id": 5,
+            "category_name": "topping",
+            "product_name": "whipped cream",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "price": 0.75
+        },
+        {
+            "id": 4,
+            "category_name": "topping",
+            "product_name": "drizzle",
+            "img_path": "jafjkadsl;fjkadslfjas",
+            "price": 0.75
+        }
+    ]
+}
