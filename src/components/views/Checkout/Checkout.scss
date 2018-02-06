@@ -1,0 +1,59 @@
+@import "~styles/base";
+
+.checkout-view {
+    width: 100%;
+    max-width: $max-width;
+    padding: 50px 15px 0;
+    margin: 0 auto 50px;
+}
+
+.topbar {
+    @include full-width-fix(50px);
+
+    top: 0;
+
+    h1 {
+        line-height: 50px;
+    }
+}
+
+.footer {
+    @include full-width-fix(50px);
+
+    bottom: 0;
+    padding: 7px 15px 0;
+}
+
+.payment-wrapper {
+    width: 100%;
+    max-width: 475px;
+    margin: 30px auto;
+}
+
+.item {
+    display: flex;
+    margin-bottom: 3px;
+
+    span {
+        flex: 1;
+    }
+}
+
+.date {
+    margin-bottom: 10px;
+}
+
+.summary {
+    margin-top: 10px;
+    font-weight: $font-bold;
+}
+
+.check-icon {
+    display: inline-block;
+    line-height: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: $color-success;
+    color: $color-white;
+}

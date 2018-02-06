@@ -29,6 +29,10 @@
 .footer {
     padding: 7px 15px 0;
     bottom: 0;
+
+    button svg {
+        vertical-align: bottom;
+    }
 }
 
 .order-table {
@@ -84,14 +88,6 @@
         font-size: 1.25rem;
         font-weight: $font-bold;
     }
-}
-
-.width-10 {
-    // width: 10%;
-}
-
-.width-16 {
-    width: 1rem;
 }
 
 .width-50 {

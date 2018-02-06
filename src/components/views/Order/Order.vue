@@ -96,7 +96,11 @@
 
         <div class="footer">
             <button class="btn btn-danger fl">Cancel Order</button>
-            <button class="btn btn-success fr">Checkout</button>
+            <button class="btn btn-success fr"
+                @click="checkout">
+                <icon name="coin-dollar"></icon>
+                Checkout
+            </button>
         </div>
     </div>
 </template>
@@ -104,6 +108,18 @@
 <script>
 export default {
     name: 'order',
+    data() {
+        return {
+
+        }
+    },
+    methods: {
+        checkout() {
+            this.$router.push({
+                name: 'checkout'
+            })
+        }
+    }
 }
 </script>
 

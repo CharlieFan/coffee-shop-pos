@@ -5,10 +5,16 @@ import VueRouter from 'vue-router'
 import Home from 'components/views/Home/Home'
 import CoffeeDetails from 'components/views/CoffeeDetails/CoffeeDetails'
 import Order from 'components/views/Order/Order'
+import Checkout from 'components/views/Checkout/Checkout'
 
 Vue.use(VueRouter)
 
 const routes = [
+    {
+        path: '/checkout',
+        name: 'checkout',
+        component: Checkout
+    },
     {
         path: '/order',
         name: 'order',
