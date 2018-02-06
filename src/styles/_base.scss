@@ -1,6 +1,8 @@
 @import './var';
 
 // utils styles:
+
+// float position:
 .fl {
     float: left;
 }
@@ -9,20 +11,25 @@
     float: right;
 }
 
+// text align:
 @each $type in center, left, right {
     .text-#{$type} {
         text-align: $type;
     }
 }
 
+// flex size:
 @each $flex in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
     .flex-#{$flex} {
         flex: $flex;
     }
 }
 
-// functions:
+.p-l-5 {
+    padding-left: 5px;
+}
 
+// functions:
 @function tint($color, $percentage) {
     @return mix(white, $color, $percentage);
 }
