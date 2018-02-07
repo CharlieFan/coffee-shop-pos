@@ -21,7 +21,7 @@ const routes = [
         component: Order
     },
     {
-        path: '/edit/coffeeDetails/:item_id',
+        path: '/edit/coffeeDetails/:id/:item_id',
         name: 'editCoffee',
         component: CoffeeDetails
     },

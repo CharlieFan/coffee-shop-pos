@@ -22,5 +22,27 @@ export default {
         getCoffeeDetails(id) {
             return get('/coffee', {id})
         }
+    },
+    order: {
+        /**
+         * Get orders
+         */
+        getOrderList() {
+            return get('/orderList')
+        },
+        /**
+         * Get orderDetails
+         * @param id
+         */
+        getOrderDetails(id) {
+            return get('/orderDetails', {id})
+        },
+        /**
+         * Add a item to order
+         * @param data
+         */
+        addItemToOrder(data) {
+            return post('/orderList', data)
+        }
     }
 }

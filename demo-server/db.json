@@ -1,367 +1,427 @@
 {
-    "menu": [
+  "menu": [
+    {
+      "category": "Espresso",
+      "list": [
         {
-            "category": "Espresso",
-            "list": [
-                {
-                    "id": 1,
-                    "product_name": "Single Espresso",
-                    "img_path": "http://localhost:3000/images/espresso.png"
-                },
-                {
-                    "id": 2,
-                    "product_name": "Latte",
-                    "img_path": "http://localhost:3000/images/lattee.jpg"
-                },
-                {
-                    "id": 3,
-                    "product_name": "Cappuccino",
-                    "img_path": "http://localhost:3000/images/cappuccino.jpeg"
-                }
-            ]
+          "id": 1,
+          "product_name": "Single Espresso",
+          "img_path": "http://localhost:3000/images/espresso.png"
         },
         {
-            "category": "Brewed Coffee",
-            "list": [
-                {
-                    "id": 4,
-                    "product_name": "Original Blend",
-                    "img_path": "http://localhost:3000/images/blend_black.jpeg"
-                },
-                {
-                    "id": 5,
-                    "product_name": "Dark Roast",
-                    "img_path": "http://localhost:3000/images/dark.jpg"
-                },
-                {
-                    "id": 6,
-                    "product_name": "Decaf",
-                    "img_path": "http://localhost:3000/images/decaf.jpg"
-                }
-            ]
+          "id": 2,
+          "product_name": "Latte",
+          "img_path": "http://localhost:3000/images/lattee.jpg"
+        },
+        {
+          "id": 3,
+          "product_name": "Cappuccino",
+          "img_path": "http://localhost:3000/images/cappuccino.jpeg"
         }
-    ],
-    "coffee": [
+      ]
+    },
+    {
+      "category": "Brewed Coffee",
+      "list": [
         {
-            "id": 1,
-            "category_name": "Espresso",
-            "product_name": "Single Espresso",
-            "img_path": "http://localhost:3000/images/espresso.png",
-            "base_price": 0,
-            "sizes": [
-                {
-                    "label": "small",
-                    "value": 0
-                }
-            ],
-            "ingredients": [
-                {
-                    "id": "esp_shot",
-                    "amount": 1
-                }
-            ]
+          "id": 4,
+          "product_name": "Original Blend",
+          "img_path": "http://localhost:3000/images/blend_black.jpeg"
         },
         {
-            "id": 2,
-            "category_name": "Espresso",
-            "product_name": "Latte",
-            "img_path": "http://localhost:3000/images/lattee.jpg",
-            "base_price": 1,
-            "sizes": [
-                {
-                    "label": "small",
-                    "value": 0
-                },
-                {
-                    "label": "medium",
-                    "value": 1
-                },
-                {
-                    "label": "large",
-                    "value": 2
-                }
-            ],
-            "ingredients": [
-                {
-                    "id": "esp_shot",
-                    "amount": 1
-                },
-                {
-                    "id": "milk_2",
-                    "amount": 3
-                },
-                {
-                    "id": "sugar",
-                    "amount": 1
-                }
-            ]
+          "id": 5,
+          "product_name": "Dark Roast",
+          "img_path": "http://localhost:3000/images/dark.jpg"
         },
         {
-            "id": 3,
-            "category_name": "Espresso",
-            "product_name": "Cappuccino",
-            "img_path": "http://localhost:3000/images/cappuccino.jpeg",
-            "base_price": 1,
-            "sizes": [
-                {
-                    "label": "small",
-                    "value": 0
-                },
-                {
-                    "label": "medium",
-                    "value": 1
-                },
-                {
-                    "label": "large",
-                    "value": 2
-                }
-            ],
-            "ingredients": [
-                {
-                    "id": "esp_shot",
-                    "amount": 1
-                },
-                {
-                    "id": "milk_2",
-                    "amount": 2
-                },
-                {
-                    "id": "sugar",
-                    "amount": 1
-                }
-            ]
-        },
-        {
-            "id": 4,
-            "category_name": "Brewed",
-            "product_name": "Original Blend",
-            "img_path": "http://localhost:3000/images/blend_black.jpeg",
-            "base_price": 1.5,
-            "sizes": [
-                {
-                    "label": "small",
-                    "value": 0
-                },
-                {
-                    "label": "medium",
-                    "value": 0.25
-                },
-                {
-                    "label": "large",
-                    "value": 0.4
-                }
-            ],
-            "ingredients": []
-        },
-        {
-            "id": 5,
-            "category_name": "Brewed",
-            "product_name": "Dark Roast",
-            "img_path": "http://localhost:3000/images/dark.jpg",
-            "base_price": 1.75,
-            "sizes": [
-                {
-                    "label": "small",
-                    "value": 0
-                },
-                {
-                    "label": "medium",
-                    "value": 0.25
-                },
-                {
-                    "label": "large",
-                    "value": 0.4
-                }
-            ],
-            "ingredients": []
-        },
-        {
-            "id": 6,
-            "category_name": "Brewed",
-            "product_name": "Decaf",
-            "img_path": "/images/decaf.jpg",
-            "base_price": 1.5,
-            "sizes": [
-                {
-                    "label": "small",
-                    "value": 0
-                },
-                {
-                    "label": "medium",
-                    "value": 0.25
-                },
-                {
-                    "label": "large",
-                    "value": 0.4
-                }
-            ],
-            "ingredients": []
+          "id": 6,
+          "product_name": "Decaf",
+          "img_path": "http://localhost:3000/images/decaf.jpg"
         }
-    ],
-    "ingredients_list": [
+      ]
+    }
+  ],
+  "coffee": [
+    {
+      "id": 1,
+      "category_name": "Espresso",
+      "product_name": "Single Espresso",
+      "img_path": "http://localhost:3000/images/espresso.png",
+      "base_price": 0,
+      "sizes": [
         {
-            "category": "espresso_shot",
-            "category_name": "Espresso shot",
-            "list": [
-                {
-                    "id": "esp_shot",
-                    "product_name": "espresso shot",
-                    "price": 1
-                }
-            ]
-        },
-        {
-            "category": "sweetener",
-            "category_name": "Sweetener",
-            "list": [
-                {
-                    "id": "sugar",
-                    "product_name": "Sugar",
-                    "price": 0
-                },
-                {
-                    "id": "splanda",
-                    "product_name": "Splanda",
-                    "price": 0
-                },
-                {
-                    "id": "honey",
-                    "product_name": "Honey",
-                    "price": 0
-                }
-            ]
-        },
-        {
-            "category": "milk",
-            "category_name": "Milk",
-            "list": [
-                {
-                    "id": "milk_2",
-                    "product_name": "2% Milk",
-                    "price": 0
-                },
-                {
-                    "id": "cream_18",
-                    "product_name": "18% Cream",
-                    "price": 0
-                },
-                {
-                    "id": "milk_skimmed",
-                    "product_name": "skimmed milk",
-                    "price": 0
-                }
-            ]
-        },
-        {
-            "category": "flavor",
-            "category_name": "Flavor",
-            "list": [
-                {
-                    "id": "f_vanilla",
-                    "product_name": "Vanilla",
-                    "price": 0.5
-                },
-                {
-                    "id": "f_hazelnut",
-                    "product_name": "Hazelnut",
-                    "price": 0.5
-                },
-                {
-                    "id": "f_caramel",
-                    "product_name": "Caramel",
-                    "price": 0.5
-                }
-            ]
-        },
-        {
-            "category": "topping",
-            "category_name": "Topping",
-            "list": [
-                {
-                    "id": "whipped_cream",
-                    "product_name": "Whipped Cream",
-                    "price": 0.75
-                },
-                {
-                    "id": "drizzle",
-                    "product_name": "Drizzle",
-                    "price": 0.75
-                }
-            ]
+          "label": "small",
+          "value": 0
         }
-    ],
-    "ingredients": [
+      ],
+      "ingredients": [
         {
-            "id": 101,
-            "category_name": "espresso shot",
-            "product_name": "espresso shot",
-            "price": 1
-        },
-        {
-            "id": 102,
-            "category_name": "flavor",
-            "product_name": "vanilla",
-            "price": 0.5
-        },
-        {
-            "id": 103,
-            "category_name": "flavor",
-            "product_name": "hazelnut",
-            "price": 0.5
-        },
-        {
-            "id": 104,
-            "category_name": "flavor",
-            "product_name": "caramel",
-            "price": 0.5
-        },
-        {
-            "id": 105,
-            "category_name": "topping",
-            "product_name": "whipped cream",
-            "price": 0.75
-        },
-        {
-            "id": 106,
-            "category_name": "topping",
-            "product_name": "drizzle",
-            "price": 0.75
-        },
-        {
-            "id": 107,
-            "category_name": "sweetener",
-            "product_name": "sugar",
-            "price": 0
-        },
-        {
-            "id": 108,
-            "category_name": "sweetener",
-            "product_name": "splanda",
-            "price": 0
-        },
-        {
-            "id": 109,
-            "category_name": "sweetener",
-            "product_name": "honey",
-            "price": 0
-        },
-        {
-            "id": 110,
-            "category_name": "milk",
-            "product_name": "2% milk",
-            "price": 0
-        },
-        {
-            "id": 111,
-            "category_name": "milk",
-            "product_name": "18% cream",
-            "price": 0
-        },
-        {
-            "id": 112,
-            "category_name": "milk",
-            "product_name": "skimmed milk",
-            "price": 0
+          "id": "esp_shot",
+          "amount": 1
         }
-    ]
+      ]
+    },
+    {
+      "id": 2,
+      "category_name": "Espresso",
+      "product_name": "Latte",
+      "img_path": "http://localhost:3000/images/lattee.jpg",
+      "base_price": 1,
+      "sizes": [
+        {
+          "label": "small",
+          "value": 0
+        },
+        {
+          "label": "medium",
+          "value": 1
+        },
+        {
+          "label": "large",
+          "value": 2
+        }
+      ],
+      "ingredients": [
+        {
+          "id": "esp_shot",
+          "amount": 1
+        },
+        {
+          "id": "milk_2",
+          "amount": 3
+        },
+        {
+          "id": "sugar",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "category_name": "Espresso",
+      "product_name": "Cappuccino",
+      "img_path": "http://localhost:3000/images/cappuccino.jpeg",
+      "base_price": 1,
+      "sizes": [
+        {
+          "label": "small",
+          "value": 0
+        },
+        {
+          "label": "medium",
+          "value": 1
+        },
+        {
+          "label": "large",
+          "value": 2
+        }
+      ],
+      "ingredients": [
+        {
+          "id": "esp_shot",
+          "amount": 1
+        },
+        {
+          "id": "milk_2",
+          "amount": 2
+        },
+        {
+          "id": "sugar",
+          "amount": 1
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "category_name": "Brewed",
+      "product_name": "Original Blend",
+      "img_path": "http://localhost:3000/images/blend_black.jpeg",
+      "base_price": 1.5,
+      "sizes": [
+        {
+          "label": "small",
+          "value": 0
+        },
+        {
+          "label": "medium",
+          "value": 0.25
+        },
+        {
+          "label": "large",
+          "value": 0.4
+        }
+      ],
+      "ingredients": []
+    },
+    {
+      "id": 5,
+      "category_name": "Brewed",
+      "product_name": "Dark Roast",
+      "img_path": "http://localhost:3000/images/dark.jpg",
+      "base_price": 1.75,
+      "sizes": [
+        {
+          "label": "small",
+          "value": 0
+        },
+        {
+          "label": "medium",
+          "value": 0.25
+        },
+        {
+          "label": "large",
+          "value": 0.4
+        }
+      ],
+      "ingredients": []
+    },
+    {
+      "id": 6,
+      "category_name": "Brewed",
+      "product_name": "Decaf",
+      "img_path": "/images/decaf.jpg",
+      "base_price": 1.5,
+      "sizes": [
+        {
+          "label": "small",
+          "value": 0
+        },
+        {
+          "label": "medium",
+          "value": 0.25
+        },
+        {
+          "label": "large",
+          "value": 0.4
+        }
+      ],
+      "ingredients": []
+    }
+  ],
+  "ingredients_list": [
+    {
+      "category": "espresso_shot",
+      "category_name": "Espresso shot",
+      "list": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "price": 1
+        }
+      ]
+    },
+    {
+      "category": "sweetener",
+      "category_name": "Sweetener",
+      "list": [
+        {
+          "id": "sugar",
+          "product_name": "Sugar",
+          "price": 0
+        },
+        {
+          "id": "splanda",
+          "product_name": "Splanda",
+          "price": 0
+        },
+        {
+          "id": "honey",
+          "product_name": "Honey",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "category": "milk",
+      "category_name": "Milk",
+      "list": [
+        {
+          "id": "milk_2",
+          "product_name": "2% Milk",
+          "price": 0
+        },
+        {
+          "id": "cream_18",
+          "product_name": "18% Cream",
+          "price": 0
+        },
+        {
+          "id": "milk_skimmed",
+          "product_name": "skimmed milk",
+          "price": 0
+        }
+      ]
+    },
+    {
+      "category": "flavor",
+      "category_name": "Flavor",
+      "list": [
+        {
+          "id": "f_vanilla",
+          "product_name": "Vanilla",
+          "price": 0.5
+        },
+        {
+          "id": "f_hazelnut",
+          "product_name": "Hazelnut",
+          "price": 0.5
+        },
+        {
+          "id": "f_caramel",
+          "product_name": "Caramel",
+          "price": 0.5
+        }
+      ]
+    },
+    {
+      "category": "topping",
+      "category_name": "Topping",
+      "list": [
+        {
+          "id": "whipped_cream",
+          "product_name": "Whipped Cream",
+          "price": 0.75
+        },
+        {
+          "id": "drizzle",
+          "product_name": "Drizzle",
+          "price": 0.75
+        }
+      ]
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 101,
+      "category_name": "espresso shot",
+      "product_name": "espresso shot",
+      "price": 1
+    },
+    {
+      "id": 102,
+      "category_name": "flavor",
+      "product_name": "vanilla",
+      "price": 0.5
+    },
+    {
+      "id": 103,
+      "category_name": "flavor",
+      "product_name": "hazelnut",
+      "price": 0.5
+    },
+    {
+      "id": 104,
+      "category_name": "flavor",
+      "product_name": "caramel",
+      "price": 0.5
+    },
+    {
+      "id": 105,
+      "category_name": "topping",
+      "product_name": "whipped cream",
+      "price": 0.75
+    },
+    {
+      "id": 106,
+      "category_name": "topping",
+      "product_name": "drizzle",
+      "price": 0.75
+    },
+    {
+      "id": 107,
+      "category_name": "sweetener",
+      "product_name": "sugar",
+      "price": 0
+    },
+    {
+      "id": 108,
+      "category_name": "sweetener",
+      "product_name": "splanda",
+      "price": 0
+    },
+    {
+      "id": 109,
+      "category_name": "sweetener",
+      "product_name": "honey",
+      "price": 0
+    },
+    {
+      "id": 110,
+      "category_name": "milk",
+      "product_name": "2% milk",
+      "price": 0
+    },
+    {
+      "id": 111,
+      "category_name": "milk",
+      "product_name": "18% cream",
+      "price": 0
+    },
+    {
+      "id": 112,
+      "category_name": "milk",
+      "product_name": "skimmed milk",
+      "price": 0
+    }
+  ],
+  "ordersDetails": [],
+  "orderList": [
+    {
+      "product_name": "Cappuccino",
+      "img_path": "http://localhost:3000/images/cappuccino.jpeg",
+      "size": "small",
+      "adds_on": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        },
+        {
+          "id": "sugar",
+          "product_name": "Sugar",
+          "amount": 1,
+          "price": 0
+        },
+        {
+          "id": "milk_2",
+          "product_name": "2% Milk",
+          "amount": 2,
+          "price": 0
+        }
+      ],
+      "extra_charged": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        }
+      ],
+      "sum": 2,
+      "id": 1
+    },
+    {
+      "product_name": "Original Blend",
+      "img_path": "http://localhost:3000/images/blend_black.jpeg",
+      "size": "small",
+      "adds_on": [
+        {
+          "id": "sugar",
+          "product_name": "Sugar",
+          "amount": 2,
+          "price": 0
+        },
+        {
+          "id": "cream_18",
+          "product_name": "18% Cream",
+          "amount": 2,
+          "price": 0
+        }
+      ],
+      "extra_charged": [],
+      "sum": 1.5,
+      "id": 2
+    }
+  ]
 }

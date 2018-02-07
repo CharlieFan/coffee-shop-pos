@@ -1,7 +1,7 @@
 <template>
     <div class="detail-view">
         <div class="topbar">
-            <h1>{{coffeeInfo.title}}</h1>
+            <h1>{{coffeeInfo.product_name}}</h1>
         </div>
 
         <div class="image_box text-center">
@@ -63,8 +63,9 @@ export default {
             ],
             ingredients: [],
             priceList: {},
+            nameMap: {},
             coffeeInfo: {
-                title: '...',
+                product_name: '...',
                 img_path: '',
                 base_price: 0,
                 size_price: 0,
@@ -126,25 +127,28 @@ export default {
         },
         updateIngredients() {
             return this.api.menu.getIngredients().then((res) => {
-                console.log(res)
+                // console.log(res)
                 this.ingredients = res
                 let all = {}
+                let nameMap = {}
                 res.map((item) => {
                     return item.list
                 }).reduce((prev, curr) => {
                     return prev.concat(curr)
                 }).forEach((item) => {
                     all[item.id] = item.price
+                    nameMap[item.id] = item.product_name
                 })
 
                 this.priceList = all
+                this.nameMap = nameMap
             })
         },
         updatePreset(id) {
             this.api.menu.getCoffeeDetails(id).then((res) => {
-                console.log(res)
+                // console.log(res)
                 let preset = res[0]
-                this.coffeeInfo.title = preset.product_name
+                this.coffeeInfo.product_name = preset.product_name
                 this.coffeeInfo.img_path = preset.img_path
                 this.sizes = preset.sizes
                 this.coffeeInfo.base_price = preset.base_price
@@ -156,7 +160,36 @@ export default {
             })
         },
         addToOrder() {
-            console.log('hahah')
+            console.log(this.coffeeInfo)
+            let addsOnList = []
+            for(let item in this.coffeeInfo.addsOn) {
+                if (this.coffeeInfo.addsOn.hasOwnProperty(item)) {
+                    if (this.coffeeInfo.addsOn[item] > 0) {
+                        addsOnList.push({
+                            id: item,
+                            product_name: this.nameMap[item],
+                            amount: this.coffeeInfo.addsOn[item],
+                            price: this.priceList[item]
+                        })
+                    }
+                }
+            }
+
+            let data = {
+                product_name: this.coffeeInfo.product_name,
+                img_path: this.coffeeInfo.img_path,
+                size: this.sizeSelected,
+                adds_on: addsOnList,
+                extra_charged: addsOnList.filter((item) => {
+                    return item.price > 0
+                }),
+                sum: this.sum
+            }
+
+            console.log(data)
+            this.api.order.addItemToOrder(data).then(res => {
+                console.log(res)
+            })
         }
     },
     created() {
