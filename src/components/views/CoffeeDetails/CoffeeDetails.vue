@@ -1,7 +1,7 @@
 <template>
     <div class="detail-view">
         <div class="topbar">
-            <h1>Vanilla Latte</h1>
+            <h1>{{coffeeInfo.title}}</h1>
         </div>
 
 
@@ -11,20 +11,21 @@
             <div class="form-item">
                 <label>Size</label>
                 <div>
-                    <select class="menu-select max-160">
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
+                    <select class="menu-select max-160" v-model="orderSet.size_price">
+                        <option :value="v.price_add"
+                            v-for="v in size"
+                            :key="v.label">
+                            {{v.label}}
+                        </option>
                     </select>
                 </div>
             </div>
 
-            <div class="form-item">
+            <!-- <div class="form-item">
                 <label>
                     Espresso
                     <input type="checkbox">
                 </label>
-                <!-- <p>No Espresso</p> -->
                 <div>
                     <number-input class="max-160"
                         v-model="espNum">
@@ -104,6 +105,27 @@
                         v-model="flavor.shot"></number-input>
                     <span class="tail">shot(s)</span>
                 </div>
+            </div> -->
+
+            <div class="form-item" v-for="v in ingredients" :key="v.category">
+                <label>
+                    {{v.category}}
+                    <input type="checkbox">
+                </label>
+                <div>
+                    <select class="menu-select max-130"
+                        v-if="v.list.length > 1">
+                        <option value="m"
+                            v-for="i in v.list"
+                            :key="i.id">{{i.product_name}}</option>
+                    </select>
+                    <icon name="cross" width="16" height="16"
+                         v-if="v.list.length > 1"></icon>
+                    <number-input class="max-160"
+                        :min="0"
+                        v-model="flavor.shot"></number-input>
+                    <span class="tail">shot(s)</span>
+                </div>
             </div>
         </form>
         <div class="footer">
@@ -124,7 +146,19 @@ export default {
     },
     data () {
         return {
-            size: 's',
+            size: {
+                s: {
+                    label: "small",
+                    price_add: 0
+                }
+            },
+            ingredients: [],
+            coffeeInfo: {
+                title: '...'
+            },
+            orderSet: {
+                size_price: 0
+            },
             espNum: 2,
             flavor: {
                 type: 'vanilla',
@@ -132,15 +166,37 @@ export default {
             }
         }
     },
+    computed: {
+        id() {
+            let { id } = this.$route.params
+            return id
+        }
+    },
     methods: {
         backMenu() {
             this.$router.push({
                 name: 'home'
             })
+        },
+        updateIngredients() {
+            return this.api.menu.getIngredients().then((res) => {
+                this.ingredients = res
+            })
+        },
+        updatePreset(id) {
+            this.api.menu.getCoffeeDetails(id).then((res) => {
+                console.log(res)
+                let preset = res[0]
+                this.size = preset.size
+                this.coffeeInfo.title = preset.product_name
+                // this.preset = res[0]
+            })
         }
     },
     created() {
-        // console.log(this)
+        this.updateIngredients().then(() => {
+            this.updatePreset(this.id)
+        })
     }
 }
 </script>

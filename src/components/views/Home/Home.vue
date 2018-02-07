@@ -51,7 +51,7 @@ export default {
     },
     created() {
         this.api.menu.getCoffeeMenu().then(res => {
-            console.log(res)
+            // console.log(res)
             this.products = res.map((item) => {
                 return item
             })

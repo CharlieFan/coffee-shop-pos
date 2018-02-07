@@ -18,6 +18,7 @@
     width: 100%;
     height: 50px;
     background-color: $color-theme;
+    z-index: $max-z-index;
 
     .inner-wrapper {
         display: flex;
