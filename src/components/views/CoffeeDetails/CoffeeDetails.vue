@@ -37,10 +37,18 @@
                 </div>
             </div>
         </form>
-        <div class="footer">
+        <!-- Add Mode Footer -->
+        <div class="footer" v-if="!isEdit">
             <button class="btn btn-primary fl"
                 @click="backMenu">Back to Menu</button>
             <button class="btn btn-success fr" @click="addToOrder">Add to Order</button>
+        </div>
+
+        <!-- Edit Mode Footer -->
+        <div class="footer" v-if="isEdit">
+            <button class="btn btn-primary fl"
+                @click="backOrder">Back to Order</button>
+            <button class="btn btn-success fr" @click="addToOrder">Save</button>
         </div>
     </div>
 </template>
@@ -95,6 +103,15 @@ export default {
             let { item_id } = this.$route.params
             return item_id
         },
+        isEdit() {
+            let { id } = this.$route.params
+            let { item_id } = this.$route.params
+            if (!id || !item_id) {
+                return false
+            } else {
+                return true
+            }
+        },
         sizeSelected() {
             let res = this.sizes.filter((size) => {
                 return size.value === this.coffeeInfo.size_price
@@ -125,6 +142,11 @@ export default {
                 name: 'home'
             })
         },
+        backOrder() {
+            this.$router.push({
+                name: 'order'
+            })
+        },
         updateIngredients() {
             return this.api.menu.getIngredients().then((res) => {
                 // console.log(res)
@@ -145,7 +167,7 @@ export default {
             })
         },
         updatePreset(id) {
-            this.api.menu.getCoffeeDetails(id).then((res) => {
+            return this.api.menu.getCoffeeDetails(id).then((res) => {
                 // console.log(res)
                 let preset = res[0]
                 this.coffeeInfo.product_name = preset.product_name
@@ -159,8 +181,17 @@ export default {
                 this.coffeeInfo.addsOn = Object.assign({}, this.coffeeInfo.addsOn, presetAddsOn)
             })
         },
+        getOrderDetails(orderId) {
+            return this.api.order.getOrderDetails(orderId).then((res) => {
+                if (!res || res.length <= 0) {
+                    return null
+                }
+
+                return res[0]
+            })
+        },
         addToOrder() {
-            console.log(this.coffeeInfo)
+            // console.log('add:', this.coffeeInfo)
             let addsOnList = []
             for(let item in this.coffeeInfo.addsOn) {
                 if (this.coffeeInfo.addsOn.hasOwnProperty(item)) {
@@ -176,6 +207,7 @@ export default {
             }
 
             let data = {
+                product_id: this.id,
                 product_name: this.coffeeInfo.product_name,
                 img_path: this.coffeeInfo.img_path,
                 size: this.sizeSelected,
@@ -186,15 +218,44 @@ export default {
                 sum: this.sum
             }
 
-            console.log(data)
-            this.api.order.addItemToOrder(data).then(res => {
-                console.log(res)
-            })
+            // console.log(data)
+            if (this.isEdit) {
+                this.api.order.saveItemToOrder(this.orderId, data).then(res => {
+                    this.$router.push({
+                        name: 'order'
+                    })
+                })
+            } else {
+                this.api.order.addItemToOrder(data).then(res => {
+                    this.$router.push({
+                        name: 'order'
+                    })
+                })
+            }
         }
     },
     created() {
         this.updateIngredients().then(() => {
-            this.updatePreset(this.id)
+            this.updatePreset(this.id).then((res)=> {
+                if (this.isEdit) {
+                    this.getOrderDetails(this.orderId).then(res => {
+                        // retrieve adds on settings
+                        let orderAddsOn = {}
+                        res.adds_on.forEach((item) => {
+                            orderAddsOn[item.id] = item.amount
+                        })
+                        this.coffeeInfo.addsOn = Object.assign({}, this.coffeeInfo.addsOn, orderAddsOn)
+
+                        // retrieve size
+                        let orderSizePrice = this.sizes.filter((size) => {
+                            return size.label === res.size
+                        })[0].value
+                        this.coffeeInfo.size_price = orderSizePrice
+                    })
+                }
+
+                return false
+            })
         })
     }
 }

@@ -7,7 +7,7 @@
                     href="javascript:void(0)"
                     @click="toOrder">
                     <icon name="cart"></icon>
-                    <span>orders ({{0}})</span>
+                    <span>Orders</span>
                 </a>
             </div>
         </div>

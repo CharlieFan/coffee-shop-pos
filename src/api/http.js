@@ -27,7 +27,17 @@ const get = function (url, query) {
 const post = function (url, data) {
     return myAxios.post(url, processData(data))
         .then(res => {
-            console.log(res)
+            return res
+        })
+        .catch(err => {
+            console.log(err)
+            throw err
+        })
+}
+
+const put = function (url, data) {
+    return myAxios.put(url, processData(data))
+        .then(res => {
             return res
         })
         .catch(err => {
@@ -49,5 +59,6 @@ const apiDelete = function(url) {
 export {
     get,
     post,
+    put,
     apiDelete
 }

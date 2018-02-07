@@ -4,7 +4,7 @@
             <h1>Order List</h1>
         </div>
 
-        <table class="order-table">
+        <table class="order-table" v-if="orders.length > 0">
             <!-- Item Row -->
             <tr v-for="(v, k) in orders" :key="k">
                 <!-- 1. img slot -->
@@ -15,7 +15,8 @@
                 <!-- 2. name slot -->
                 <td class="col-name">
                     <p>
-                        {{v.product_name}}
+                        <a href="javascript:void(0)"
+                            @click="toEditDetails(v.id)">{{v.product_name}}</a>
                     </p>
                     <span>
                         size: {{v.size}}
@@ -84,16 +85,13 @@
                     ${{Number(total).toFixed(2)}}
                 </td>
             </tr>
-
-            <tr>
-                <td colspan="5" class="text-right">
-                    <button class="btn btn-primary" @click="addMore">Add More Order</button>
-                </td>
-            </tr>
         </table>
+        <div class="action-box text-center">
+            <button class="btn btn-primary" @click="addMore">Add More Order</button>
+        </div>
 
-        <div class="footer">
-            <button class="btn btn-danger fl">Cancel Order</button>
+        <div class="footer" v-if="orders.length > 0">
+            <button class="btn btn-danger fl" @click="cancelOrder">Cancel Order</button>
             <button class="btn btn-success fr"
                 @click="checkout">
                 <icon name="coin-dollar"></icon>
@@ -159,8 +157,9 @@ export default {
             }
 
             let data = copy.map((item) => {
-                let { adds_on, extra_charged, img_path, product_name, size, sum } = item
+                let { product_id, adds_on, extra_charged, img_path, product_name, size, sum } = item
                 return {
+                    product_id,
                     adds_on,
                     extra_charged,
                     img_path,
@@ -182,6 +181,42 @@ export default {
         addMore() {
             this.$router.push({
                 name: 'home'
+            })
+        },
+        cancelOrder() {
+            if (!this.orders || this.orders.length <=0) {
+                this.$router.push({
+                    name: 'home'
+                })
+                return false
+            }
+
+            let que = this.orders.map((item) => {
+                return this.api.order.removeItemFromOrder(item.id)
+            })
+
+            Promise.all(que).then(res => {
+                this.$router.push({
+                    name: 'home'
+                })
+            }).catch(err => {
+                this.$router.push({
+                    name: 'home'
+                })
+            })
+        },
+        toEditDetails(id) {
+            let product_id = this.orders.filter((item) => {
+                return item.id === id
+            })[0].product_id
+            // console.log('item_id:', id)
+            // console.log('id:', product_id)
+            this.$router.push({
+                name: 'editCoffee',
+                params: {
+                    id: product_id,
+                    item_id: id
+                }
             })
         }
     },

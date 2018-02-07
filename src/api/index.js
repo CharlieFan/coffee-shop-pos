@@ -1,4 +1,4 @@
-import {get, post, apiDelete} from './http'
+import {get, post, put, apiDelete} from './http'
 
 export default {
     menu: {
@@ -35,7 +35,7 @@ export default {
          * @param id
          */
         getOrderDetails(id) {
-            return get('/orderDetails', {id})
+            return get('/orderList', {id})
         },
         /**
          * Add an item to order
@@ -45,7 +45,14 @@ export default {
             return post('/orderList', data)
         },
         /**
-         * remove an item from order
+         * Save an item in order
+         * @param data
+         */
+        saveItemToOrder(id, data) {
+            return put(`/orderList/${id}`, data)
+        },
+        /**
+         * Remove an item from order
          */
         removeItemFromOrder(id) {
             return apiDelete(`/orderList/${id}`)

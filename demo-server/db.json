@@ -179,7 +179,7 @@
       "id": 6,
       "category_name": "Brewed",
       "product_name": "Decaf",
-      "img_path": "/images/decaf.jpg",
+      "img_path": "http://localhost:3000/images/decaf.jpg",
       "base_price": 1.5,
       "sizes": [
         {
@@ -367,48 +367,182 @@
   "ordersDetails": [],
   "orderList": [
     {
+      "product_id": 1,
+      "product_name": "Single Espresso",
+      "img_path": "http://localhost:3000/images/espresso.png",
+      "size": "small",
       "adds_on": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        }
+      ],
+      "extra_charged": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        }
+      ],
+      "sum": 1,
+      "id": 1
+    },
+    {
+      "product_id": 5,
+      "product_name": "Dark Roast",
+      "img_path": "http://localhost:3000/images/dark.jpg",
+      "size": "small",
+      "adds_on": [],
+      "extra_charged": [],
+      "sum": 1.75,
+      "id": 2
+    },
+    {
+      "product_id": 2,
+      "product_name": "Latte",
+      "img_path": "http://localhost:3000/images/lattee.jpg",
+      "size": "small",
+      "adds_on": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        },
         {
           "id": "sugar",
           "product_name": "Sugar",
-          "amount": 2,
+          "amount": 1,
           "price": 0
         },
         {
           "id": "milk_2",
           "product_name": "2% Milk",
-          "amount": 2,
+          "amount": 3,
           "price": 0
         }
       ],
-      "extra_charged": [],
-      "img_path": "http://localhost:3000/images/blend_black.jpeg",
-      "product_name": "Original Blend",
-      "size": "small",
-      "sum": 1.5,
+      "extra_charged": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        }
+      ],
+      "sum": 2,
       "id": 3
     },
     {
+      "product_id": 2,
       "adds_on": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        },
         {
           "id": "sugar",
           "product_name": "Sugar",
-          "amount": 2,
+          "amount": 1,
           "price": 0
         },
         {
           "id": "milk_2",
           "product_name": "2% Milk",
-          "amount": 2,
+          "amount": 3,
           "price": 0
         }
       ],
-      "extra_charged": [],
-      "img_path": "http://localhost:3000/images/blend_black.jpeg",
-      "product_name": "Original Blend",
+      "extra_charged": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        }
+      ],
+      "img_path": "http://localhost:3000/images/lattee.jpg",
+      "product_name": "Latte",
       "size": "small",
-      "sum": 1.5,
+      "sum": 2,
       "id": 4
+    },
+    {
+      "product_id": "2",
+      "product_name": "Latte",
+      "img_path": "http://localhost:3000/images/lattee.jpg",
+      "size": "small",
+      "adds_on": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 2,
+          "price": 1
+        },
+        {
+          "id": "sugar",
+          "product_name": "Sugar",
+          "amount": 1,
+          "price": 0
+        },
+        {
+          "id": "milk_2",
+          "product_name": "2% Milk",
+          "amount": 3,
+          "price": 0
+        }
+      ],
+      "extra_charged": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 2,
+          "price": 1
+        }
+      ],
+      "sum": 3,
+      "id": 5
+    },
+    {
+      "product_id": 2,
+      "product_name": "Latte",
+      "img_path": "http://localhost:3000/images/lattee.jpg",
+      "size": "medium",
+      "adds_on": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        },
+        {
+          "id": "sugar",
+          "product_name": "Sugar",
+          "amount": 1,
+          "price": 0
+        },
+        {
+          "id": "milk_2",
+          "product_name": "2% Milk",
+          "amount": 3,
+          "price": 0
+        }
+      ],
+      "extra_charged": [
+        {
+          "id": "esp_shot",
+          "product_name": "espresso shot",
+          "amount": 1,
+          "price": 1
+        }
+      ],
+      "sum": 3,
+      "id": 6
     }
   ]
 }

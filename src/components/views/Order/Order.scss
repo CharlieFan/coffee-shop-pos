@@ -30,7 +30,7 @@
 .footer {
     padding: 7px 15px 0;
     bottom: 0;
-
+    
     button svg {
         vertical-align: bottom;
     }
@@ -88,6 +88,16 @@
     .col-summary {
         font-size: 1.25rem;
         font-weight: $font-bold;
+    }
+}
+
+.action-box {
+    width: 100%;
+    max-width: 1024px;
+    margin: 30px auto;
+
+    button {
+        width: 200px;
     }
 }
 
