@@ -36,7 +36,18 @@ const post = function (url, data) {
         })
 }
 
+// Delete only for demo. Ideally not to operate DB directly.
+const apiDelete = function(url) {
+    return myAxios.delete(url).then(res => {
+        // console.log(res)
+        return res.data
+    }).catch(err => {
+        console.log(err)
+        throw err
+    })
+}
 export {
     get,
-    post
+    post,
+    apiDelete
 }

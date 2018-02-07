@@ -37,10 +37,10 @@
 
                 <!-- 5. action slot -->
                 <td class="text-center">
-                    <button class="icon-btn">
+                    <button class="icon-btn" @click="copyItem(v.id)">
                         <icon width="20" height="20" name="plus"></icon>
                     </button>
-                    <button class="icon-btn">
+                    <button class="icon-btn" @click="removeItem(v.id)">
                         <icon width="20" height="20" name="minus"></icon>
                     </button>
                 </td>
@@ -55,7 +55,7 @@
                     Subtotal:
                 </td>
                 <td class="col-summary text-right">
-                    $575
+                    ${{Number(subtotal).toFixed(2)}}
                 </td>
             </tr>
 
@@ -87,7 +87,7 @@
 
             <tr>
                 <td colspan="5" class="text-right">
-                    <button class="btn btn-primary">Add More Order</button>
+                    <button class="btn btn-primary" @click="addMore">Add More Order</button>
                 </td>
             </tr>
         </table>
@@ -116,29 +116,24 @@ export default {
         return {
             isShowPayment: false,
             hst: 0.13, // demo only. Get from remote api would be better
-            orders: []
-        }
-    },
-    computed: {
-        subtotal() {
-            return this.getTotal(this.orders)
-        },
-        tax() {
-            return this.getTotal(this.orders) * this.hst
-        },
-        total() {
-            return this.getTotal(this.orders) + this.getTotal(this.orders) * this.hst
+            orders: [],
+            subtotal: 0,
+            tax: 0,
+            total: 0
         }
     },
     methods: {
         getTotal(orders = []) {
-            if (orders.length <= 0) {
+            if (!orders) {
                 return 0
             }
 
-            return orders.reduce((prev, curr) => {
-                return prev.sum + curr.sum
+            let sum = 0
+            orders.forEach((item) => {
+                sum += item.sum
             })
+
+            return sum
         },
         checkout() {
             this.isShowPayment = true
@@ -148,18 +143,45 @@ export default {
         },
         updateOrderList() {
             return this.api.order.getOrderList().then(res => {
-                console.log(res)
-                this.orders = res.map((item) => {
-                    let { extra_charged, id, img_path, product_name, size, sum} = item
-                    return {
-                        extra_charged,
-                        id,
-                        img_path,
-                        product_name,
-                        size,
-                        sum
-                    }
-                })
+                this.orders = res
+                this.subtotal = this.getTotal(this.orders)
+                this.tax = this.getTotal(this.orders) * this.hst
+                this.total = this.subtotal + this.tax
+            })
+        },
+        copyItem(id) {
+            let copy = this.orders.filter((item) => {
+                return item.id === id
+            })
+
+            if (!copy || copy.length <=0 ) {
+                return false
+            }
+
+            let data = copy.map((item) => {
+                let { adds_on, extra_charged, img_path, product_name, size, sum } = item
+                return {
+                    adds_on,
+                    extra_charged,
+                    img_path,
+                    product_name,
+                    size,
+                    sum
+                }
+            })[0]
+
+            this.api.order.addItemToOrder(data).then((res) => {
+                this.updateOrderList()
+            })
+        },
+        removeItem(id) {
+            this.api.order.removeItemFromOrder(id).then((res) => {
+                this.updateOrderList()
+            })
+        },
+        addMore() {
+            this.$router.push({
+                name: 'home'
             })
         }
     },
