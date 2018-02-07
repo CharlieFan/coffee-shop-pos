@@ -20,6 +20,17 @@
     border-radius: 4px;
     background: $color-white;
     box-shadow: 5px 5px 150px -1px rgba(0, 0, 0, 1);
+
+    &.error {
+        .balance,
+        .cash-row {
+            color: $color-danger;
+        }
+
+        .cash-row input {
+            border-color: $color-danger;
+        }
+    }
 }
 
 .topbar {

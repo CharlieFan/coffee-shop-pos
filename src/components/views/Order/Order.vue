@@ -98,7 +98,7 @@
                 Checkout
             </button>
         </div>
-        <payment-win :is-show.sync="isShowPayment"></payment-win>
+        <payment-win :total="total" :is-show.sync="isShowPayment"></payment-win>
     </div>
 </template>
 
