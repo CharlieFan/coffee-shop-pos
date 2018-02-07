@@ -4,9 +4,10 @@ export default {
     menu: {
         /**
          * Get Coffee Menu
+         * @param query
          */
-        getCoffeeMenu() {
-            console.log('get menu now')
+        getCoffeeMenu(query = null) {
+            return get('/menu', query)
         }
     }
 }

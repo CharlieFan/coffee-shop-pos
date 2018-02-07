@@ -14,12 +14,13 @@ function processData(data = {}) {
 
 const get = function (url, query) {
     return myAxios.get(url, {
-
+        params: query
     }).then(res => {
-        console.log(res)
+        // console.log(res)
+        return res.data
     }).catch(err => {
         console.log(err)
-
+        throw err
     })
 }
 
@@ -27,9 +28,11 @@ const post = function (url, data) {
     return myAxios.post(url, processData(data))
         .then(res => {
             console.log(res)
+            return res
         })
         .catch(err => {
             console.log(err)
+            throw err
         })
 }
 

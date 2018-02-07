@@ -1,38 +1,92 @@
 {
+    "menu": [
+        {
+            "category": "Espresso",
+            "list": [
+                {
+                    "id": 1,
+                    "category_name": "Espresso",
+                    "product_name": "Single Espresso",
+                    "img_path": "http://localhost:3000/images/espresso.png",
+                    "base_price": 0
+                },
+                {
+                    "id": 2,
+                    "category_name": "Espresso",
+                    "product_name": "Latte",
+                    "img_path": "http://localhost:3000/images/lattee.jpg",
+                    "base_price": 1
+                },
+                {
+                    "id": 3,
+                    "category_name": "Espresso",
+                    "product_name": "Cappuccino",
+                    "img_path": "http://localhost:3000/images/cappuccino.jpeg",
+                    "base_price": 1
+                }
+            ]
+        },
+        {
+            "category": "Brewed Coffee",
+            "list": [
+                {
+                    "id": 4,
+                    "category_name": "Brewed",
+                    "product_name": "Original Blend",
+                    "img_path": "http://localhost:3000/images/blend_black.jpeg",
+                    "base_price": 1.75
+                },
+                {
+                    "id": 5,
+                    "category_name": "Brewed",
+                    "product_name": "Dark Roast",
+                    "img_path": "http://localhost:3000/images/dark.jpg",
+                    "base_price": 1.75
+                },
+                {
+                    "id": 6,
+                    "category_name": "Brewed",
+                    "product_name": "Decaf",
+                    "img_path": "http://localhost:3000/images/decaf.jpg",
+                    "base_price": 1.75
+                }
+            ]
+        }
+    ],
     "coffee": [
         {
             "id": 1,
             "category_name": "Espresso",
             "product_name": "Single Espresso",
-            "img_path": "/images/espresso.png",
+            "img_path": "http://localhost:3000/images/espresso.png",
             "base_price": 0
         },
         {
             "id": 2,
             "category_name": "Espresso",
             "product_name": "Latte",
-            "img_path": "/images/lattee.jpg",
+            "img_path": "http://localhost:3000/images/lattee.jpg",
             "base_price": 1
         },
         {
             "id": 3,
             "category_name": "Espresso",
             "product_name": "Cappuccino",
-            "img_path": "/images/cappuccino.jpeg",
+            "img_path": "http://localhost:3000/images/cappuccino.jpeg",
             "base_price": 1
         },
         {
             "id": 4,
             "category_name": "Brewed",
             "product_name": "Original Blend",
-            "img_path": "/images/blend_black.jpeg",
+            "img_path": "http://localhost:3000/images/blend_black.jpeg",
             "base_price": 1.75
         },
         {
             "id": 5,
             "category_name": "Brewed",
             "product_name": "Dark Roast",
-            "img_path": "/images/dark.jpg",
+            "img_path": "http://localhost:3000/images/dark.jpg",
             "base_price": 1.75
         },
         {

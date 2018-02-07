@@ -14,13 +14,13 @@
         <div class="list-wrapper" v-for="v in products" :key="v.category">
             <h4>{{v.category}}</h4>
             <ul>
-                <li v-for="i in v.list" :key="i.product_id">
+                <li v-for="i in v.list" :key="i.id"
+                    @click="toDetails(i.id)">
+                    <img :src="i.img_path" :alt="i.product_name">
                     <p>{{i.product_name}}</p>
                 </li>
             </ul>
         </div>
-
-
     </div>
 </template>
 
@@ -31,35 +31,7 @@ export default {
     name: 'home',
     data () {
         return {
-            products: [
-                {
-                    category: 'Espresso',
-                    list: [
-                        {
-                            product_id: 11,
-                            product_name: 'Latte',
-                            img_path: 'fjkdslfsd'
-                        }
-                    ]
-                },
-                {
-                    category: 'Brewed Coffee',
-                    list: [
-                        {
-                            product_id: 21,
-                            product_name: 'Premium Roasted blend'
-                        },
-                        {
-                            product_id: 22,
-                            product_name: 'Dark Roasted blend'
-                        },
-                        {
-                            product_id: 23,
-                            product_name: 'Decaf blend'
-                        }
-                    ]
-                }
-            ]
+            products: []
         }
     },
     methods: {
@@ -67,7 +39,23 @@ export default {
             this.$router.push({
                 name: 'order'
             })
+        },
+        toDetails(id) {
+            this.$router.push({
+                name: 'addNewCoffee',
+                params: {
+                    id
+                }
+            })
         }
+    },
+    created() {
+        this.api.menu.getCoffeeMenu().then(res => {
+            console.log(res)
+            this.products = res.map((item) => {
+                return item
+            })
+        })
     }
 }
 </script>
