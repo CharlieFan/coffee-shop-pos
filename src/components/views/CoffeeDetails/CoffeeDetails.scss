@@ -33,6 +33,16 @@
     bottom: 0;
 }
 
+.image_box {
+    margin: 10px auto;
+    width: 300px;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
 form {
     width: 100%;
     max-width: 350px;
@@ -51,6 +61,11 @@ form {
         @media screen and (min-width: 768px) {
            font-size: 0.7rem;
         }
+    }
+
+    .sub-item {
+        margin-bottom: 15px;
+        text-align: right;
     }
 
     .svg-icon {

@@ -4,16 +4,17 @@
             <h1>{{coffeeInfo.title}}</h1>
         </div>
 
-
-        <img src="" alt="">
+        <div class="image_box text-center">
+            <img :src="coffeeInfo.img_path" :alt="coffeeInfo.title">
+        </div>
 
         <form @submit.prevent>
             <div class="form-item">
                 <label>Size</label>
                 <div>
                     <select class="menu-select max-160" v-model="coffeeInfo.size_price">
-                        <option :value="v.price_add"
-                            v-for="v in size"
+                        <option :value="v.value"
+                            v-for="v in sizes"
                             :key="v.label">
                             {{v.label}}
                         </option>
@@ -21,112 +22,17 @@
                 </div>
             </div>
 
-            <!-- <div class="form-item">
-                <label>
-                    Espresso
-                    <input type="checkbox">
-                </label>
-                <div>
-                    <number-input class="max-160"
-                        v-model="espNum">
-                    </number-input>
-                    <span class="tail">shot(s)</span>
-                </div>
-            </div>
-
-            <div class="form-item">
-                <label>
-                    Sweetener
-                    <input type="checkbox">
-                </label>
-                <div>
-                    <select class="menu-select max-130">
-                        <option value="s">Sugar</option>
-                        <option value="m">Splanda</option>
-                        <option value="l">Honey</option>
-                    </select>
-                    <icon name="cross" width="16" height="16"></icon>
-                    <number-input class="max-160"
-                            v-model="espNum"></number-input>
-                    <span class="tail">shot(s)</span>
-                </div>
-            </div>
-
-            <div class="form-item">
-                <label>
-                    Milk
-                    <input type="checkbox">
-                </label>
-                <div>
-                    <select class="menu-select max-130">
-                        <option value="m">18% Cream</option>
-                        <option value="s">2% Milk</option>
-                        <option value="l">Skimmed Milk</option>
-                    </select>
-                    <icon name="cross" width="16" height="16"></icon>
-                    <number-input class="max-160"
-                            v-model="espNum"></number-input>
-                    <span class="tail">shot(s)</span>
-                </div>
-            </div>
-
-            <div class="form-item">
-                <label>
-                    Flavor
-                    <input type="checkbox">
-                </label>
-                <div>
-                    <select class="menu-select max-130">
-                        <option value="m">Vanilla</option>
-                        <option value="s">Hazelnut</option>
-                        <option value="l">Caramel</option>
-                    </select>
-                    <icon name="cross" width="16" height="16"></icon>
-                    <number-input class="max-160"
-                        :min="0"
-                        v-model="flavor.shot"></number-input>
-                    <span class="tail">shot(s)</span>
-                </div>
-            </div>
-
-            <div class="form-item">
-                <label>
-                    Topping
-                    <input type="checkbox">
-                </label>
-                <div>
-                    <select class="menu-select max-130">
-                        <option value="m">Whipped Cream</option>
-                        <option value="s">Drizzle</option>
-                    </select>
-                    <icon name="cross" width="16" height="16"></icon>
-                    <number-input class="max-160"
-                        :min="0"
-                        v-model="flavor.shot"></number-input>
-                    <span class="tail">shot(s)</span>
-                </div>
-            </div> -->
-
             <div class="form-item" v-for="(v,k) in ingredients" :key="k">
                 <label>
                     {{v.category_name}}
-                    <input type="checkbox">
                 </label>
-                <div>
-                    <select class="menu-select max-130"
-                        v-if="v.list.length > 1"
-                        v-model="coffeeInfo[v.category].type"
-                        :placeholder="'choose ' + v.category">
-                        <option :value="null" disabled hidden>Choose {{v.category_name}}</option>
-                        <option :value="i.product_name"
-                            v-for="i in v.list"
-                            :key="i.id">{{i.product_name}}</option>
-                    </select>
+                <div class="sub-item" v-for="i in v.list" :key="i.id">
+                    <span>{{i.product_name}}</span>
                     <icon name="cross" width="16" height="16"
                          v-if="v.list.length > 1"></icon>
                     <number-input class="max-160"
                         :min="0"
-                        v-model="flavor.shot"></number-input>
+                        v-model="coffeeInfo.addsOn[i.id]"></number-input>
                     <span class="tail">shot(s)</span>
                 </div>
             </div>
@@ -134,7 +40,7 @@
         <div class="footer">
             <button class="btn btn-primary fl"
                 @click="backMenu">Back to Menu</button>
-            <button class="btn btn-success fr">Add to Order</button>
+            <button class="btn btn-success fr" @click="addToOrder">Add to Order</button>
         </div>
     </div>
 </template>
@@ -149,43 +55,33 @@ export default {
     },
     data () {
         return {
-            size: {
-                s: {
+            sizes: [
+                {
                     label: "small",
-                    price_add: 0
+                    value: 0
                 }
-            },
+            ],
             ingredients: [],
+            priceList: {},
             coffeeInfo: {
                 title: '...',
+                img_path: '',
+                base_price: 0,
                 size_price: 0,
-                espress_amount: 0,
-                sweetener: {
-                    type: null,
-                    amount: 0
-                },
-                milk: {
-                    type: null,
-                    amount: 0
-                },
-                flavor: {
-                    type: null,
-                    amount: 0
-                },
-                topping: {
-                    type: null,
-                    amount: 0
+                addsOn: {
+                    esp_shot: 0,
+                    sugar: 0,
+                    splanda: 0,
+                    honey: 0,
+                    milk_2: 0,
+                    cream_18: 0,
+                    milk_skimmed: 0,
+                    f_vanilla: 0,
+                    f_hazelnut: 0,
+                    f_caramel: 0,
+                    whipped_cream: 0,
+                    drizzle: 0,
                 }
-            },
-            orderSet: {
-                size_price: 0,
-
-
-            },
-            espNum: 2,
-            flavor: {
-                type: 'vanilla',
-                shot: 2
             }
         }
     },
@@ -193,6 +89,33 @@ export default {
         id() {
             let { id } = this.$route.params
             return id
+        },
+        orderId() {
+            let { item_id } = this.$route.params
+            return item_id
+        },
+        sizeSelected() {
+            let res = this.sizes.filter((size) => {
+                return size.value === this.coffeeInfo.size_price
+            })
+
+            return res[0].label
+        },
+        sum() {
+            let result = 0
+            for(let item in this.coffeeInfo.addsOn) {
+                if (this.coffeeInfo.addsOn.hasOwnProperty(item) && this.priceList.hasOwnProperty(item)) {
+                    result += this.coffeeInfo.addsOn[item] * this.priceList[item]
+                }
+            }
+            return result + this.coffeeInfo.base_price + this.coffeeInfo.size_price
+        }
+    },
+    watch: {
+        id() {
+            this.updateIngredients().then(() => {
+                this.updatePreset(this.id)
+            })
         }
     },
     methods: {
@@ -203,17 +126,37 @@ export default {
         },
         updateIngredients() {
             return this.api.menu.getIngredients().then((res) => {
+                console.log(res)
                 this.ingredients = res
+                let all = {}
+                res.map((item) => {
+                    return item.list
+                }).reduce((prev, curr) => {
+                    return prev.concat(curr)
+                }).forEach((item) => {
+                    all[item.id] = item.price
+                })
+
+                this.priceList = all
             })
         },
         updatePreset(id) {
             this.api.menu.getCoffeeDetails(id).then((res) => {
                 console.log(res)
                 let preset = res[0]
-                this.size = preset.size
                 this.coffeeInfo.title = preset.product_name
-                // this.preset = res[0]
+                this.coffeeInfo.img_path = preset.img_path
+                this.sizes = preset.sizes
+                this.coffeeInfo.base_price = preset.base_price
+                let presetAddsOn = {}
+                preset.ingredients.forEach((item) => {
+                    presetAddsOn[item.id] = item.amount
+                })
+                this.coffeeInfo.addsOn = Object.assign({}, this.coffeeInfo.addsOn, presetAddsOn)
             })
+        },
+        addToOrder() {
+            console.log('hahah')
         }
     },
     created() {

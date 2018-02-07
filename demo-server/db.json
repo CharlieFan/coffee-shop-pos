@@ -48,16 +48,15 @@
             "product_name": "Single Espresso",
             "img_path": "http://localhost:3000/images/espresso.png",
             "base_price": 0,
-            "size": {
-                "s": {
+            "sizes": [
+                {
                     "label": "small",
-                    "price_add": 0
+                    "value": 0
                 }
-            },
+            ],
             "ingredients": [
                 {
-                    "id": 101,
-                    "product_name": "espresso",
+                    "id": "esp_shot",
                     "amount": 1
                 }
             ]
@@ -68,34 +67,31 @@
             "product_name": "Latte",
             "img_path": "http://localhost:3000/images/lattee.jpg",
             "base_price": 1,
-            "size": {
-                "s": {
+            "sizes": [
+                {
                     "label": "small",
-                    "price_add": 0
+                    "value": 0
                 },
-                "m": {
+                {
                     "label": "medium",
-                    "price_add": 1
+                    "value": 1
                 },
-                "l": {
+                {
                     "label": "large",
-                    "price_add": 2
+                    "value": 2
                 }
-            },
+            ],
             "ingredients": [
                 {
-                    "id": 101,
-                    "product_name": "espresso",
+                    "id": "esp_shot",
                     "amount": 1
                 },
                 {
-                    "id": 110,
-                    "product_name": "2% milk",
+                    "id": "milk_2",
                     "amount": 3
                 },
                 {
-                    "id": 107,
-                    "product_name": "sugar",
+                    "id": "sugar",
                     "amount": 1
                 }
             ]
@@ -106,34 +102,31 @@
             "product_name": "Cappuccino",
             "img_path": "http://localhost:3000/images/cappuccino.jpeg",
             "base_price": 1,
-            "size": {
-                "s": {
+            "sizes": [
+                {
                     "label": "small",
-                    "price_add": 0
+                    "value": 0
                 },
-                "m": {
+                {
                     "label": "medium",
-                    "price_add": 1
+                    "value": 1
                 },
-                "l": {
+                {
                     "label": "large",
-                    "price_add": 2
+                    "value": 2
                 }
-            },
+            ],
             "ingredients": [
                 {
-                    "id": 101,
-                    "product_name": "espresso",
+                    "id": "esp_shot",
                     "amount": 1
                 },
                 {
-                    "id": 110,
-                    "product_name": "2% milk",
+                    "id": "milk_2",
                     "amount": 2
                 },
                 {
-                    "id": 107,
-                    "product_name": "sugar",
+                    "id": "sugar",
                     "amount": 1
                 }
             ]
@@ -144,20 +137,20 @@
             "product_name": "Original Blend",
             "img_path": "http://localhost:3000/images/blend_black.jpeg",
             "base_price": 1.5,
-            "size": {
-                "s": {
+            "sizes": [
+                {
                     "label": "small",
-                    "price_add": 0
+                    "value": 0
                 },
-                "m": {
+                {
                     "label": "medium",
-                    "price_add": 0.25
+                    "value": 0.25
                 },
-                "l": {
+                {
                     "label": "large",
-                    "price_add": 0.4
+                    "value": 0.4
                 }
-            },
+            ],
             "ingredients": []
         },
         {
@@ -166,20 +159,20 @@
             "product_name": "Dark Roast",
             "img_path": "http://localhost:3000/images/dark.jpg",
             "base_price": 1.75,
-            "size": {
-                "s": {
+            "sizes": [
+                {
                     "label": "small",
-                    "price_add": 0
+                    "value": 0
                 },
-                "m": {
+                {
                     "label": "medium",
-                    "price_add": 0.25
+                    "value": 0.25
                 },
-                "l": {
+                {
                     "label": "large",
-                    "price_add": 0.4
+                    "value": 0.4
                 }
-            },
+            ],
             "ingredients": []
         },
         {
@@ -188,20 +181,20 @@
             "product_name": "Decaf",
             "img_path": "/images/decaf.jpg",
             "base_price": 1.5,
-            "size": {
-                "s": {
+            "sizes": [
+                {
                     "label": "small",
-                    "price_add": 0
+                    "value": 0
                 },
-                "m": {
+                {
                     "label": "medium",
-                    "price_add": 0.25
+                    "value": 0.25
                 },
-                "l": {
+                {
                     "label": "large",
-                    "price_add": 0.4
+                    "value": 0.4
                 }
-            },
+            ],
             "ingredients": []
         }
     ],
@@ -211,7 +204,7 @@
             "category_name": "Espresso shot",
             "list": [
                 {
-                    "id": 101,
+                    "id": "esp_shot",
                     "product_name": "espresso shot",
                     "price": 1
                 }
@@ -222,18 +215,18 @@
             "category_name": "Sweetener",
             "list": [
                 {
-                    "id": 107,
-                    "product_name": "sugar",
+                    "id": "sugar",
+                    "product_name": "Sugar",
                     "price": 0
                 },
                 {
-                    "id": 108,
-                    "product_name": "splanda",
+                    "id": "splanda",
+                    "product_name": "Splanda",
                     "price": 0
                 },
                 {
-                    "id": 109,
-                    "product_name": "honey",
+                    "id": "honey",
+                    "product_name": "Honey",
                     "price": 0
                 }
             ]
@@ -243,17 +236,17 @@
             "category_name": "Milk",
             "list": [
                 {
-                    "id": 110,
-                    "product_name": "2% milk",
+                    "id": "milk_2",
+                    "product_name": "2% Milk",
                     "price": 0
                 },
                 {
-                    "id": 111,
-                    "product_name": "18% cream",
+                    "id": "cream_18",
+                    "product_name": "18% Cream",
                     "price": 0
                 },
                 {
-                    "id": 112,
+                    "id": "milk_skimmed",
                     "product_name": "skimmed milk",
                     "price": 0
                 }
@@ -264,18 +257,18 @@
             "category_name": "Flavor",
             "list": [
                 {
-                    "id": 102,
-                    "product_name": "vanilla",
+                    "id": "f_vanilla",
+                    "product_name": "Vanilla",
                     "price": 0.5
                 },
                 {
-                    "id": 103,
-                    "product_name": "hazelnut",
+                    "id": "f_hazelnut",
+                    "product_name": "Hazelnut",
                     "price": 0.5
                 },
                 {
-                    "id": 104,
-                    "product_name": "caramel",
+                    "id": "f_caramel",
+                    "product_name": "Caramel",
                     "price": 0.5
                 }
             ]
@@ -285,13 +278,13 @@
             "category_name": "Topping",
             "list": [
                 {
-                    "id": 105,
-                    "product_name": "whipped cream",
+                    "id": "whipped_cream",
+                    "product_name": "Whipped Cream",
                     "price": 0.75
                 },
                 {
-                    "id": 106,
-                    "product_name": "drizzle",
+                    "id": "drizzle",
+                    "product_name": "Drizzle",
                     "price": 0.75
                 }
             ]
