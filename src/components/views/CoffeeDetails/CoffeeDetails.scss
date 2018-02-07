@@ -46,7 +46,11 @@ form {
     }
 
     select {
-        font-size: 0.8rem;
+        font-size: 1rem;
+
+        @media screen and (min-width: 768px) {
+           font-size: 0.7rem;
+        }
     }
 
     .svg-icon {
@@ -68,6 +72,6 @@ form {
 
     .max-130 {
         width: 100%;
-        max-width: 130px;
+        max-width: 135px;
     }
 }

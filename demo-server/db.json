@@ -207,7 +207,8 @@
     ],
     "ingredients_list": [
         {
-            "category": "Espresso shot",
+            "category": "espresso_shot",
+            "category_name": "Espresso shot",
             "list": [
                 {
                     "id": 101,
@@ -217,7 +218,8 @@
             ]
         },
         {
-            "category": "Sweetener",
+            "category": "sweetener",
+            "category_name": "Sweetener",
             "list": [
                 {
                     "id": 107,
@@ -237,7 +239,8 @@
             ]
         },
         {
-            "category": "Milk",
+            "category": "milk",
+            "category_name": "Milk",
             "list": [
                 {
                     "id": 110,
@@ -257,7 +260,8 @@
             ]
         },
         {
-            "category": "Flavor",
+            "category": "flavor",
+            "category_name": "Flavor",
             "list": [
                 {
                     "id": 102,
@@ -277,7 +281,8 @@
             ]
         },
         {
-            "category": "Topping",
+            "category": "topping",
+            "category_name": "Topping",
             "list": [
                 {
                     "id": 105,

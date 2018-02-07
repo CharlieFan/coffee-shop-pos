@@ -11,7 +11,7 @@
             <div class="form-item">
                 <label>Size</label>
                 <div>
-                    <select class="menu-select max-160" v-model="orderSet.size_price">
+                    <select class="menu-select max-160" v-model="coffeeInfo.size_price">
                         <option :value="v.price_add"
                             v-for="v in size"
                             :key="v.label">
@@ -107,15 +107,18 @@
                 </div>
             </div> -->
 
-            <div class="form-item" v-for="v in ingredients" :key="v.category">
+            <div class="form-item" v-for="(v,k) in ingredients" :key="k">
                 <label>
-                    {{v.category}}
+                    {{v.category_name}}
                     <input type="checkbox">
                 </label>
                 <div>
                     <select class="menu-select max-130"
-                        v-if="v.list.length > 1">
-                        <option value="m"
+                        v-if="v.list.length > 1"
+                        v-model="coffeeInfo[v.category].type"
+                        :placeholder="'choose ' + v.category">
+                        <option :value="null" disabled hidden>Choose {{v.category_name}}</option>
+                        <option :value="i.product_name"
                             v-for="i in v.list"
                             :key="i.id">{{i.product_name}}</option>
                     </select>
@@ -154,10 +157,30 @@ export default {
             },
             ingredients: [],
             coffeeInfo: {
-                title: '...'
+                title: '...',
+                size_price: 0,
+                espress_amount: 0,
+                sweetener: {
+                    type: null,
+                    amount: 0
+                },
+                milk: {
+                    type: null,
+                    amount: 0
+                },
+                flavor: {
+                    type: null,
+                    amount: 0
+                },
+                topping: {
+                    type: null,
+                    amount: 0
+                }
             },
             orderSet: {
-                size_price: 0
+                size_price: 0,
+
+
             },
             espNum: 2,
             flavor: {
