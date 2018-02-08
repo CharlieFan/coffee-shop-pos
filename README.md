@@ -5,6 +5,9 @@
 ## Build Setup
 
 ``` bash
+# clone fist
+git clone https://github.com/CharlieFan/coffee-shop-pos.git
+
 # install dependencies
 npm install
 
