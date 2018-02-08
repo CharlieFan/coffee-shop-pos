@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "server": "cd ./demo-server && json-server db.json",
     "svg": "gulp --gulpfile ./gulpfile.js"
   },
   "dependencies": {
