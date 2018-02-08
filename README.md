@@ -22,6 +22,7 @@ For detailed explanation on how things work, consult the [docs for vue-loader](h
 
 ## Diretory Structure
 coffee-app-vuejs
+```
 |---src
     |---assets
     |---App.vue
@@ -34,6 +35,7 @@ coffee-app-vuejs
     |---styles
 |---pacage.json
 |---index.html
+```
 
 ## Usage of Demo server 
 In order to simulate REST api, I choose json-server to simulate a true server which will return json based on request URLs.
