@@ -11,7 +11,7 @@
 
         <div class="payment-wrapper">
             <div class="item date">
-                <span>YYYY-MM-DD 05:42:05 PM</span>
+                <span>{{ time }}</span>
             </div>
 
             <div class="item">
@@ -20,40 +20,40 @@
                 <span>TOTAL</span>
             </div>
 
-            <div class="item" v-for="v in 10" :key="v">
-                <span>{{v}}</span>
-                <span>Original Blend</span>
-                <span>1.75</span>
+            <div class="item" v-for="(v, k) in processed" :key="k">
+                <span>{{ v.qty }}</span>
+                <span>{{ v.product_name }}</span>
+                <span>{{ v.price }}</span>
             </div>
 
             <div class="item summary">
                 <span>Subtotal</span>
                 <span></span>
-                <span>$100</span>
+                <span>${{ subtotal }}</span>
             </div>
 
             <div class="item summary">
                 <span>HST</span>
                 <span></span>
-                <span>$100</span>
+                <span>${{ tax }}</span>
             </div>
 
             <div class="item summary">
                 <span>Total</span>
                 <span></span>
-                <span>$100</span>
+                <span>${{ total }}</span>
             </div>
             
             <div class="item summary">
-                <span>CREDIT CARD</span>
+                <span>{{ method }}</span>
                 <span></span>
-                <span>$100</span>
+                <span>${{ paid }}</span>
             </div>
 
             <div class="item summary">
                 <span>Change</span>
                 <span></span>
-                <span>$100</span>
+                <span>${{ change }}</span>
             </div>
         </div>
 
@@ -69,6 +69,18 @@
 <script>
 export default {
     name: 'checkout',
+    data() {
+        return {
+            time: null,
+            processed: [],
+            subtotal: null,
+            tax: null,
+            total: null,
+            method: null,
+            paid: null,
+            change: null
+        }
+    },
     methods: {
         print() {
             window.print()
@@ -79,6 +91,38 @@ export default {
                 name: 'home'
             })
         }
+    },
+    created() {
+        this.api.transaction.getTransaction().then((res) => {
+            this.time = res.time
+            this.subtotal = res.subtotal
+            this.tax = res.tax
+            this.total = res.total
+            this.method = res.method
+            this.paid = res.paid
+            this.change = res.change
+            this.processed = res.processed.map((item) => {
+                let flat = []
+                flat.push({
+                    product_name: item.product_name,
+                    qty: item.amount ? item.amount : 1,
+                    size: item.size ? item.size : '',
+                    price: item.base_price
+                })
+
+                item.extra_charged.forEach((sub) => {
+                    flat.push({
+                        product_name: sub.product_name,
+                        qty: sub.amount,
+                        size: sub.size ? sub.size : '',
+                        price: sub.total_price
+                    })
+                })
+                return flat
+            }).reduce((prev, curr) => {
+                return prev.concat(curr)
+            })
+        })
     }
 }
 </script>

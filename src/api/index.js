@@ -57,5 +57,20 @@ export default {
         removeItemFromOrder(id) {
             return apiDelete(`/orderList/${id}`)
         }
+    },
+    transaction: {
+        /**
+         * Get Transaction
+         */
+        getTransaction() {
+            return get('/transaction')
+        },
+        /**
+         * Generate receipt
+         * @param data
+        */
+        generateReceipt(data) {
+            return post('/transaction', data)
+        }
     }
 }

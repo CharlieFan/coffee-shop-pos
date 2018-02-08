@@ -25,8 +25,8 @@
 
                 <!-- 3. extra charged slot -->
                 <td class="col-charged">
-                    <p v-for="i in v.extra_charged" :key="i.id">
-                        ( {{i.product_name}} + $1.00 ) * {{i.amount}}
+                    <p v-for="i in v.extra_charged" :key="i.id" v-if="v.extra_charged.length > 0">
+                        ( {{i.product_name}} + ${{Number(i.price).toFixed(2)}} ) * {{i.amount}}
                     </p>
                 </td>
 
@@ -98,11 +98,13 @@
                 Checkout
             </button>
         </div>
-        <payment-win :total="total" :is-show.sync="isShowPayment"></payment-win>
+        <payment-win :total="total" :is-show.sync="isShowPayment"
+            @paid="gatherData"></payment-win>
     </div>
 </template>
 
 <script>
+import moment from 'moment'
 import PaymentWin from './PaymentWin/PaymentWin'
 
 export default {
@@ -135,9 +137,6 @@ export default {
         },
         checkout() {
             this.isShowPayment = true
-            // this.$router.push({
-            //     name: 'checkout'
-            // })
         },
         updateOrderList() {
             return this.api.order.getOrderList().then(res => {
@@ -209,14 +208,66 @@ export default {
             let product_id = this.orders.filter((item) => {
                 return item.id === id
             })[0].product_id
-            // console.log('item_id:', id)
-            // console.log('id:', product_id)
+
             this.$router.push({
                 name: 'editCoffee',
                 params: {
                     id: product_id,
                     item_id: id
                 }
+            })
+        },
+        gatherData(e) {
+            let processed = this.orders.map((order) => {
+                let extra_charged = order.extra_charged.map((item) => {
+                        return {
+                            product_name: item.product_name,
+                            amount: item.amount,
+                            price: item.price,
+                            total_price: item.amount * item.price
+                        }
+                    })
+                let extra_total = 0
+
+                extra_charged.forEach((item) => {
+                    extra_total += item.total_price
+                })
+
+                return {
+                    product_name: order.product_name,
+                    size: order.size,
+                    sum: Number(order.sum).toFixed(2),
+                    extra_charged: extra_charged,
+                    base_price: Number(order.sum - extra_total).toFixed(2)
+                }
+            })
+
+            let data = {
+                time: moment().format('YYYY-MM-DD hh:mm:ss A'),
+                processed,
+                subtotal: Number(this.subtotal).toFixed(2),
+                tax: Number(this.tax).toFixed(2),
+                total: Number(this.total).toFixed(2),
+                method: e.method,
+                paid: Number(e.paidAmount).toFixed(2),
+                change: Number(e.change).toFixed(2)
+            }
+
+            this.api.transaction.generateReceipt(data).then(() => {
+                // clear orders:
+                let que = this.orders.map((item) => {
+                    return this.api.order.removeItemFromOrder(item.id)
+                })
+
+                Promise.all(que).then(res => {
+                    this.$router.push({
+                        name: 'checkout'
+                    })
+                }).catch(err => {
+                    this.$router.push({
+                        name: 'checkout'
+                    })
+                })
             })
         }
     },

@@ -16,7 +16,6 @@ const get = function (url, query) {
     return myAxios.get(url, {
         params: query
     }).then(res => {
-        // console.log(res)
         return res.data
     }).catch(err => {
         console.log(err)
@@ -49,7 +48,6 @@ const put = function (url, data) {
 // Delete only for demo. Ideally not to operate DB directly.
 const apiDelete = function(url) {
     return myAxios.delete(url).then(res => {
-        // console.log(res)
         return res.data
     }).catch(err => {
         console.log(err)

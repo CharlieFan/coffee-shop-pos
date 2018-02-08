@@ -364,77 +364,63 @@
       "price": 0
     }
   ],
-  "orderList": [
-    {
-      "product_id": 2,
-      "product_name": "Latte",
-      "img_path": "http://localhost:3000/images/lattee.jpg",
-      "size": "small",
-      "adds_on": [
-        {
-          "id": "esp_shot",
-          "product_name": "espresso shot",
-          "amount": 1,
-          "price": 1
-        },
-        {
-          "id": "sugar",
-          "product_name": "Sugar",
-          "amount": 1,
-          "price": 0
-        },
-        {
-          "id": "milk_2",
-          "product_name": "2% Milk",
-          "amount": 3,
-          "price": 0
-        },
-        {
-          "id": "whipped_cream",
-          "product_name": "Whipped Cream",
-          "amount": 1,
-          "price": 0.75
-        }
-      ],
-      "extra_charged": [
-        {
-          "id": "esp_shot",
-          "product_name": "espresso shot",
-          "amount": 1,
-          "price": 1
-        },
-        {
-          "id": "whipped_cream",
-          "product_name": "Whipped Cream",
-          "amount": 1,
-          "price": 0.75
-        }
-      ],
-      "sum": 2.75,
-      "id": 1
-    },
-    {
-      "product_id": 4,
-      "product_name": "Original Blend",
-      "img_path": "http://localhost:3000/images/blend_black.jpeg",
-      "size": "large",
-      "adds_on": [
-        {
-          "id": "sugar",
-          "product_name": "Sugar",
-          "amount": 2,
-          "price": 0
-        },
-        {
-          "id": "cream_18",
-          "product_name": "18% Cream",
-          "amount": 2,
-          "price": 0
-        }
-      ],
-      "extra_charged": [],
-      "sum": 1.9,
-      "id": 2
-    }
-  ]
+  "orderList": [],
+  "transaction": {
+    "time": "2018-02-07 07:48:41 PM",
+    "processed": [
+      {
+        "product_name": "Latte",
+        "size": "small",
+        "sum": "2.75",
+        "extra_charged": [
+          {
+            "product_name": "espresso shot",
+            "amount": 1,
+            "price": 1,
+            "total_price": 1
+          },
+          {
+            "product_name": "Whipped Cream",
+            "amount": 1,
+            "price": 0.75,
+            "total_price": 0.75
+          }
+        ],
+        "base_price": "1.00"
+      },
+      {
+        "product_name": "Original Blend",
+        "size": "large",
+        "sum": "1.90",
+        "extra_charged": [],
+        "base_price": "1.90"
+      },
+      {
+        "product_name": "Latte",
+        "size": "small",
+        "sum": "3.00",
+        "extra_charged": [
+          {
+            "product_name": "espresso shot",
+            "amount": 1,
+            "price": 1,
+            "total_price": 1
+          },
+          {
+            "product_name": "Vanilla",
+            "amount": 2,
+            "price": 0.5,
+            "total_price": 1
+          }
+        ],
+        "base_price": "1.00"
+      }
+    ],
+    "subtotal": "7.65",
+    "tax": "0.99",
+    "total": "8.64",
+    "method": "Credit/Debit",
+    "paid": "8.64",
+    "change": "0.00"
+  }
 }

@@ -149,7 +149,6 @@ export default {
         },
         updateIngredients() {
             return this.api.menu.getIngredients().then((res) => {
-                // console.log(res)
                 this.ingredients = res
                 let all = {}
                 let nameMap = {}
@@ -168,7 +167,6 @@ export default {
         },
         updatePreset(id) {
             return this.api.menu.getCoffeeDetails(id).then((res) => {
-                // console.log(res)
                 let preset = res[0]
                 this.coffeeInfo.product_name = preset.product_name
                 this.coffeeInfo.img_path = preset.img_path
@@ -191,7 +189,6 @@ export default {
             })
         },
         addToOrder() {
-            // console.log('add:', this.coffeeInfo)
             let addsOnList = []
             for(let item in this.coffeeInfo.addsOn) {
                 if (this.coffeeInfo.addsOn.hasOwnProperty(item)) {
@@ -218,7 +215,6 @@ export default {
                 sum: this.sum
             }
 
-            // console.log(data)
             if (this.isEdit) {
                 this.api.order.saveItemToOrder(this.orderId, data).then(res => {
                     this.$router.push({

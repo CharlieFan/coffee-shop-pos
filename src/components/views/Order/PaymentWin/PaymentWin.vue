@@ -118,7 +118,6 @@ export default {
         checkCash() {
             let rest = this.total - this.cashAmount
             if (rest > 0) {
-                console.log('you should pay')
                 this.hasErr = true
                 return true
             } else {
@@ -128,18 +127,24 @@ export default {
         },
         chargeCard() {
             console.log('call card payment api')
-            this.$router.push({
-                name: 'checkout'
+            this.$emit('paid', {
+                paidAmount: Number(this.total).toFixed(2), 
+                change: 0,
+                method: 'Credit/Debit'
             })
+            this.close()
         },
         chargeCash() {
             if(this.checkCash()) {
                 return false
             }
 
-            this.$router.push({
-                name: 'checkout'
+            this.$emit('paid', {
+                paidAmount: Number(this.cashAmount).toFixed(2), 
+                change: this.changeDue,
+                method: 'Cash'
             })
+            this.close()
         },
         checkDelete(e) {
             if (e.target.value <= 0) {
